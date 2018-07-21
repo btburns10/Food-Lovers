@@ -26,33 +26,52 @@ header{
 }
 
 #headerLogo{
+    padding-top: 5px;
+    padding-left: 5px;
     height: 60px;
-}
-
-#informationBlock1{
-    z-index: 99999;
-    padding-top: 100px;
-    padding-left: 75px;
 }
 
 h1{ 
     font-weight: 700;
-    font-size: 90px;
+    font-size: 72px;
     color: #fff;
-    padding: 5px;
+    margin-left: 50px;
 }
 h2{ 
-    margin-left: 20%;
     color: #fff;
-    padding: 10px;
+    margin-left: 75px;
 }
 #informationBlock1{
-    left:20%;
-    top: 10%;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    background: rgb(0, 0, 0, 0.7);
+    max-width: 575px;
 }
 
-#infoBackground{
-    background: rgb(0, 0, 0, 0.7);
-    width: 575px;
+
+@media screen and (max-width: 760px){
+    #headerLogo{
+        height: 50px;
+    }
+    #searchBar{
+        position: absolute;
+        bottom: 5%;
+        width: 100%;
+    }
+    #informationBlock1{
+        left: 0;
+        width: 100%;
+    }
+    h1{ 
+        margin: 0;
+        font-size: 4rem;
+    }
+    h2{ 
+        margin-left: 0;
+        width: 100%;
+        font-size: 36px;
+        text-align: center;
+    }
 }
 

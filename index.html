@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
@@ -32,19 +34,22 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
+                        <i class="large material-icons">dehaze</i>
+                    </a>
+
                     <img src="assets/images/foodLogoPNG.png" id="headerLogo">
                 </a>
-                <ul class="right hide-on-med-and-down">
+                <ul class="right hide-on-med-and-down" id="mobile-demo">
                     <li>
                         <a href="#"> Search Page </a>
                     </li>
                     <li>
                         <a href="#">Contact</a>
                     </li>
-                    <!-- Dropdown Trigger -->
                     <li>
-                        <a class="dropdown-trigger" href="#" data-target="dropdown1"> Sign In
-                            <i class="material-icons right">User Image</i>
+                        <a class="dropdown-trigger" id="signIn" href="#" data-target="dropdown1">Sign In
+                            <!-- <i class="material-icons right">User Image</i> -->
                         </a>
                     </li>
                 </ul>
@@ -55,14 +60,13 @@
 
 
         <div id="informationBlock1">
-            <aside id="infoBackground">
-                <h1> Food. Drinks. Happiness.</h1>
-                <h2> Find yours today.</h2>
-            </aside>
+            <h1> Food. Drinks.
+                <br> Happiness.</h1>
+            <h2> Find yours today.</h2>
         </div>
         <div id="searchBar">
             <div class="row">
-                <nav class="col s8 push-s2">
+                <nav class="col m8 push-m2 col s12">
                     <div class="nav-wrapper">
                         <form>
                             <div class="input-field">
@@ -80,7 +84,7 @@
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <script src='assets/js/logicAlex.js'></script>
 
 </body>
