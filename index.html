@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <link rel='stylesheet' href='assets/css/styleAlex.css'>
+
+</head>
+
+<body>
+
+    <header>
+        <ul id="dropdown1" class="dropdown-content">
+            <li>
+                <a href="#">Profile</a>
+            </li>
+            <li>
+                <a href="#">Favorites</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="#">Sign Out</a>
+            </li>
+        </ul>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
+                        <i class="large material-icons">dehaze</i>
+                    </a>
+
+                    <img src="assets/images/foodLogoPNG.png" id="headerLogo">
+                </a>
+                <ul class="right hide-on-med-and-down" id="mobile-demo">
+                    <li>
+                        <a href="#"> Search Page </a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-trigger" id="signIn" href="#" data-target="dropdown1">Sign In
+                            <!-- <i class="material-icons right">User Image</i> -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="mainContent">
+
+
+        <div id="informationBlock1">
+            <h1> Food. Drinks.
+                <br> Happiness.</h1>
+            <h2> Find yours today.</h2>
+        </div>
+        <div id="searchBar">
+            <div class="row">
+                <nav class="col m8 push-m2 col s12">
+                    <div class="nav-wrapper">
+                        <form>
+                            <div class="input-field">
+                                <input id="search" type="search" required>
+                                <label class="label-icon" for="search">
+                                    <i class="material-icons">search</i>
+                                </label>
+                                <i class="material-icons">close</i>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src='assets/js/logicAlex.js'></script>
+
+</body>
+
+</html>
