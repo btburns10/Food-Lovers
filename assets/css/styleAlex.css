@@ -1,0 +1,58 @@
+html{
+    height: 100vh;
+    position: relative;
+}
+body{
+    height: 100%;
+}
+
+header{
+    z-index: 2;
+    width: 100%;
+    position: absolute;
+}
+#mainContent{
+    height: 100%;
+    background: url(../images/eatintgBackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#searchBar{
+    width: 100%;
+    position: fixed;
+    bottom: 10%;
+}
+
+#headerLogo{
+    height: 60px;
+}
+
+#informationBlock1{
+    z-index: 99999;
+    padding-top: 100px;
+    padding-left: 75px;
+}
+
+h1{ 
+    font-weight: 700;
+    font-size: 90px;
+    color: #fff;
+    padding: 5px;
+}
+h2{ 
+    margin-left: 20%;
+    color: #fff;
+    padding: 10px;
+}
+#informationBlock1{
+    left:20%;
+    top: 10%;
+}
+
+#infoBackground{
+    background: rgb(0, 0, 0, 0.7);
+    width: 575px;
+}
+
