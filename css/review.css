@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+#addLabel {
+    font-weight: bold;
+
+}
+#address1,
+#address2 {
+    margin:0px;
+    font-size: 14px;
+    font-weight: 200;
+
+}
