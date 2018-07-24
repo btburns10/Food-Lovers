@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #fff
+}
+main {
+    flex: 1 0 auto;
+  }
+#mainContent{
+    position: relative;
+    height: 90vh;
+    background: url(../images/eatintgBackground.png);
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 4%;
+    font-size: 45px;
+}
+
+#weeklyItem{
+    margin: auto 50px;
+}
+
+#carouselItemInfo{
+    width: 40%;
+    height: 100%;
+}
+#carouselItemPic{
+    width: 60%;
+}
+.carousel .indicators{
+    left: 60%
+}

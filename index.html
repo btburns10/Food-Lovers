@@ -7,85 +7,163 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Compiled and minified CSS -->
+    <!-- Materialize/Navbar+Footer CDNs -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--xxxxxxxxxxxxxxxxxx-->
 
-    <link rel='stylesheet' href='assets/css/styleAlex.css'>
+    <!--Navbar and Footer CSS-->
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <!--xxxxxxxxxxxxxxxxxx-->
+
+    <link rel='stylesheet' href='assets/css/homepage.css'>
+
 
 </head>
 
 <body>
 
-    <header>
-        <ul id="dropdown1" class="dropdown-content">
-            <li>
-                <a href="#">Profile</a>
-            </li>
-            <li>
-                <a href="#">Favorites</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-                <a href="#">Sign Out</a>
-            </li>
-        </ul>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
-                        <i class="large material-icons">dehaze</i>
-                    </a>
-
-                    <img src="assets/images/foodLogoPNG.png" id="headerLogo">
-                </a>
-                <ul class="right hide-on-med-and-down" id="mobile-demo">
-                    <li>
-                        <a href="#"> Search Page </a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-trigger" id="signIn" href="#" data-target="dropdown1">Sign In
-                            <!-- <i class="material-icons right">User Image</i> -->
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <div id="entireNavBar">
+    </div>
     <div id="mainContent">
-
-
-        <div id="informationBlock1">
-            <h1> Food. Drinks.
-                <br> Happiness.</h1>
-            <h2> Find yours today.</h2>
-        </div>
-        <div id="searchBar">
-            <div class="row">
-                <nav class="col m8 push-m2 col s12">
-                    <div class="nav-wrapper">
-                        <form>
-                            <div class="input-field">
-                                <input id="search" type="search" required>
-                                <label class="label-icon" for="search">
-                                    <i class="material-icons">search</i>
-                                </label>
-                                <i class="material-icons">close</i>
-                            </div>
-                        </form>
+    </div>
+    <div class="container" id="weeklyContent">
+        <h1> Weekly Spoontaculars </h1>
+        <div class="row center-align">
+            <div class="col s10 push-s1 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="assets/images/placeholder.png">
+                        <span class="card-title">Card Title</span>
                     </div>
-                </nav>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because
+                            I require little markup to use effectively.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s10 push-s1 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="assets/images/placeholder.png">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because
+                            I require little markup to use effectively.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s10 push-s1 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="assets/images/placeholder.png">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because
+                            I require little markup to use effectively.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <div class="hide-on-med-and-down">
+        <div class="carousel carousel-slider center">
+            <div class="carousel-item black white-text" href="#one!">
+                <div class="left text-black" id="carouselItemPic">
+                    <img src="assets/images/bittersweet.jpg">
+                </div>
+                <div class="right black " id="carouselItemInfo">
+                    <h1> Bittersweet </h1>
+                    <h5>Raleigh, NC</h5>
+                    <h6>
+                        <a href="http://bittersweetraleigh.com/"> bittersweetraleigh.com </a>
+                    </h6>
+                    <br>
+                    <br>
+                    <br>
+                    <h5 class="card-content">Nestled in downtown Raleigh, Bittersweet offers a truly unique experience with their menu of seasonal
+                        and classic cocktails alongside fantastic desserts. As they say, they are a place where you can get
+                        bourbon with your pie, champagne with your cake and Irish whiskey in your coffee.</h5>
+
+                    <h5 class="card-content">
+                        Alongside their alcohol and dessert choices, they have a full coffee and espresso menu. Desserts are baked in-house daily,
+                        and they offer over 40 types of gin. If you're looking to relax and forget a hard days work, be sure
+                        to look for their Mind Eraser- a coffee liquer and vodka shooter.</h5>
+                </div>
+            </div>
+            <div class="carousel-item black white-text" href="#two!">
+                <div class="left" id="carouselItemPic">
+                    <img src="assets/images/lucky32.jpg">
+                </div>
+                <div class="right black" id="carouselItemInfo">
+                    <h2>Lucky 32 Southern Kitchen</h2>
+                    <h5>Cary, NC</h5>
+                    <h6>
+                        <a href="http://lucky32.com/"> lucky32.com </a>
+                    </h6>
+                    <br>
+                    <br>
+
+                    <h5 class="card-content"> The original Lucky 32 was opened in 1989 in Greensboro, this location opened in 2002. This wonderful
+                        restaurant prides themselves on putting the guests and it's employees first and foremost. Their attention
+                        to detail doesn't stop just the decor and service, but certainly can be noted in their food as well.
+                        </h5>
+
+                    <h5 class="card-content">
+                        One of the most unique aspects, is the ability to go to their website and look directly at their recipes! Whether it's the
+                        Smoked Ham & Cheese Dip you enjoyed or the Smoked Salmon Cakes, you'll find the recipes online and
+                        available with no catch. However, don't let that stop you from going in person and enjoying a night
+                        out.</h5>
+                </div>
+            </div>
+            <div class="carousel-item black white-text " href="#four!">
+                <div class="left" id="carouselItemPic">
+                    <img src="assets/images/bhavana.jpg">
+                </div>
+                <div class="right black" id="carouselItemInfo">
+                    <h2>Brewery Bhavana</h2>
+                    <h5>Raleigh, NC</h5>
+                    <h6>
+                        <a href="brewerybhavana.com/">https://brewerybhavana.com/</a>
+                    </h6>
+                    <br>
+                    <br>
+                    <br>
+                    <h5 class="card-content">
+                        Another gem in downtown Raleigh right near their sister restaurant, Bida Manda, is this one. A unique combination of a bar,
+                        restaurant, flower shop, and bookstore. That's right, it is all those things in one and somehow beautifully
+                        done.
+                    </h5>
+
+                    <h5 class="card-content">
+                        The dim sum here is incredible. There's no arguing it's literal translation of "touch the heart" when you bite into a warm
+                        dim sum and you just feel the warmth of the food and feel home. Don't forget to try a beer while
+                        you're there as well. After all, it is called Brewery Bhavana for a reason.
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="entireFooter">
+
+    </div>
+
+    <!--Scripts required for navbar/footer-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <script src='assets/js/logicAlex.js'></script>
+    <script src='assets/js/navbar.js'></script>
+    <script src="assets/js/footer.js"></script>
+    <!--xxxxxxxxxxxxxxxxxx-->
+    <script src="assets/js/homepage.js"></script>
+
+
 
 </body>
 
