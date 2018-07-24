@@ -8,12 +8,12 @@
 $(function () {
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyCpSivuBs4N0RQMZSGpZPtgGPTjPgsfvHU",
-        authDomain: "food-lovers-9bdc3.firebaseapp.com",
-        databaseURL: "https://food-lovers-9bdc3.firebaseio.com",
-        projectId: "food-lovers-9bdc3",
-        storageBucket: "",
-        messagingSenderId: "592101420756"
+        apiKey: "AIzaSyBmkUTzXWeKHgrMrODh7Ra1b4feAfwrtiU",
+        authDomain: "food-lovers-14947.firebaseapp.com",
+        databaseURL: "https://food-lovers-14947.firebaseio.com",
+        projectId: "food-lovers-14947",
+        storageBucket: "food-lovers-14947.appspot.com",
+        messagingSenderId: "134886336746"
     };
     firebase.initializeApp(config);
 
@@ -30,7 +30,7 @@ $(function () {
                         </a>
                         <ul class="right hide-on-med-and-down">
                             <li>
-                                <a href="#1">Search</a>
+                                <a href="resultsBurns.html">Search</a>
                             </li>
                             <li>
                                 <a href="contact.html">Contact Us</a>
