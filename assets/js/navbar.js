@@ -22,7 +22,7 @@ $(function () {
             <nav>
                 <div class="nav-wrapper">
                     <div class="container">
-                        <a href="#!" class="brand-logo left">
+                        <a href="index.html" class="brand-logo left">
                             <img src="assets/images/foodLogoPNG.png" id="headerLogo">
                         </a>
                         <a href="#" data-target="dropdownMobile" class="dropdown-trigger right hide-on-large-only">
@@ -33,7 +33,7 @@ $(function () {
                                 <a href="#1">Search</a>
                             </li>
                             <li>
-                                <a href="#1">Contact Us</a>
+                                <a href="contact.html">Contact Us</a>
                             </li>
                             <!-- Profile Dropdown Trigger -->
                             <li class="row">

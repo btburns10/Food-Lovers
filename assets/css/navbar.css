@@ -6,6 +6,32 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/navbar.css">
 <!--xxxxxxxxxxxxxxxxxx--> */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    position: relative;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #fff
+}
+main {
+    flex: 1 0 auto;
+  }
+
+#mainContent{
+    position: relative;
+    top: 90px;
+    margin-bottom: 90px; 
+}
 
 #headerLogo,
 #profilePicture{
