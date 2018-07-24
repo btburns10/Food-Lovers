@@ -24,19 +24,29 @@
     overflow: hidden; /* Changed this from overflow-y:auto; to overflow:hidden; */
     opacity: 0;
     position: absolute;
+    top: -90px;
     white-space: nowrap;
     z-index: 1;
     will-change: width, height;
-  }
+}
 
-  #dropdown1 li{
+#dropdown1 li{
       text-align: right;
-  }
+}
+.sidenav-trigger.right{
+    display: flex;
+    flex: column;
+    align-items: center;
+    height: 90px;
+}
+
 
 /* overrides navbar to make larger */
 nav {
+    z-index: 1;
     height: 90px;
     line-height: 90px;
+    position: fixed;
 }
 
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
@@ -58,5 +68,6 @@ nav .brand-logo {
         height: 90px;
         line-height: 90px;
     }
+
 }
 /* --------------------------------- */

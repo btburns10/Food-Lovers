@@ -17,47 +17,56 @@ $(function () {
     };
     firebase.initializeApp(config);
 
-    function addNavBar(){
-        $("#entireNavBar").html(`<!-- Main Navbar -->
-        <nav>
-            <div class="nav-wrapper">
-                <div class="container">
-                    <a href="#!" class="brand-logo">
-                        <img src="assets/images/foodLogoPNG.png" id="headerLogo">
-                    </a>
-                    <ul class="right hide-on-med-and-down">
-                        <li>
-                            <a href="#1">Page</a>
-                        </li>
-                        <li>
-                            <a href="#1">Contact Us</a>
-                        </li>
-                        <!-- Profile Dropdown Trigger -->
-                        <li class="row">
-
-                            <a href="#!" class="dropdown-trigger" data-beloworigin="true" data-target="dropdown1" id="profileIcon">
-                            </a>
-
-                        </li>
-                        <!--xxxxxxxxxxxxx-->
-                    </ul>
+    function addNavBar() {
+        $("#entireNavBar").html(`
+            <nav>
+                <div class="nav-wrapper">
+                    <div class="container">
+                        <a href="#!" class="brand-logo left">
+                            <img src="assets/images/foodLogoPNG.png" id="headerLogo">
+                        </a>
+                        <a href="#" data-target="dropdownMobile" class="dropdown-trigger right hide-on-large-only">
+                            <i class="large material-icons">menu</i>
+                        </a>
+                        <ul class="right hide-on-med-and-down">
+                            <li>
+                                <a href="#1">Search</a>
+                            </li>
+                            <li>
+                                <a href="#1">Contact Us</a>
+                            </li>
+                            <!-- Profile Dropdown Trigger -->
+                            <li class="row">
+                                <a href="#!" class="dropdown-trigger" data-beloworigin="true" data-target="dropdown1" id="profileIcon">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-        <!--Profile Dropdown Menu-->
-        <ul id="dropdown1" class="dropdown-content">
-            <li>
-                <a href="#!">Profile</a>
-            </li>
-            <li>
-                <a href="#!">Favorites</a>
-            </li>
-            <li class="divider"></li>
-            <li id="loginControl">
-                <a href="#!" id="signIn">Sign In</a>
-            </li>
-        </ul>
-        <!--xxxxxxxxxxxxxxxxxxxxxxxxxx-->`)
+            </nav>
+            <!--Profile Dropdown Menu-->
+            <ul class="dropdown-content" id="dropdown1">
+                <li>
+                    <a href="#1">Search</a>
+                </li>
+                <li>
+                    <a href="#1">Contact Us</a>
+                </li>
+                <li class="divider" id="accountLinks"></li>
+            </ul>
+            <!--xxxxxxxxxxxxxxxxxx-->
+            <!--Mobile Dropdown Menu-->
+            <ul class="dropdown-content right hide-on-large-only" id="dropdownMobile">
+                <li>
+                    <a href="#1">Search</a>
+                </li>
+                <li>
+                    <a href="#1">Contact Us</a>
+                </li>
+                <li class="divider" id="mobileAccountLinks"></li>
+            </ul>
+            <!--xxxxxxxxxxxxxxxxxx-->
+        `)
     };
 
     addNavBar();
@@ -80,34 +89,37 @@ $(function () {
         // you have one. Use User.getToken() instead.
 
         if (userLoggedIn === true) {
-            var $profile = $("<img>").attr("src", photoUrl).attr("id", )
+            var $profile = $("<img>").attr("src", photoUrl)
             $("#profileIcon").empty();
-            $("#profileIcon").append($profile)
+            $("#profileIcon").append($profile);
 
-            var $signOut = $("<a>").attr("href", "#!").attr("id", "signOut")
-            var $signOut = $signOut.html("Sign Out")
-            $("#loginControl").empty()
-            $("#loginControl").append($signOut)
+            var $signOut = $("<a>").attr("href", "#!").addClass("signOut")
+            var $signOut = $signOut.html("Sign Out");
+            $("#dropdown1").empty();
+            $("#dropdown1").append($signOut);
         }
 
     } else {
         console.log(userLoggedIn)
 
-        var $profile = $("<i>").addClass("large material-icons").attr("id", "profileIcon").css("font-size", "60px").html("account_circle")
-        $("#profileIcon").empty()
-        $("#profileIcon").append($profile)
-        console.log("user not logged in")
+        var $profile = $("<i>").addClass("large material-icons").attr("id", "profileIcon").css("font-size", "60px").html("account_circle");
+        $("#profileIcon").empty();
+        $("#profileIcon").append($profile);
+        console.log("user not logged in");
 
-        var $signIn = $("<a>").attr("href", "#!").attr("id", "signIn")
-        var $signIn = $signIn.html("Sign In")
-        $("#loginControl").empty()
-        $("#loginControl").append($signIn)
+        var $li = $("<li>").addClass("signIn");
+        var $signIn = $("<a>").attr("href", "#!").html("Sign In");
+        var $signIn = $li.append($signIn)
+
+        $("#dropdown1").append($signIn);
+        $("#dropdownMobile").append($signIn.clone());
+
     }
 
     //-------------------------------------------//
 
     //Google Sign In
-    $(document).on("click", "#signIn", function () {
+    $(document).on("click", ".signIn", function () {
         var provider = new firebase.auth.GoogleAuthProvider();
 
         firebase.auth().signInWithPopup(provider).then(function (result) {
@@ -148,15 +160,7 @@ $(function () {
             console.log("Fail")
         }).then(function () {
 
-            //swap out account_circle for user profile pic//
-            var $profile = $("<img>").attr("src", photoUrl).attr("id", "profilePicture")
-            $("#profileIcon").empty();
-            $("#profileIcon").append($profile)
-
-            var $signOut = $("<a>").attr("href", "#!").attr("id", "signOut")
-            var $signOut = $signOut.html("Sign Out")
-            $("#loginControl").empty()
-            $("#loginControl").append($signOut)
+            dropdownOnSignIn();
 
         });
     });
@@ -181,7 +185,7 @@ $(function () {
     //     });
 
 
-    $(document).on("click", "#signOut", function () {
+    $(document).on("click", ".signOut", function () {
         firebase.auth().signOut()
             .then(function () {
                 console.log("signed out")
@@ -190,18 +194,53 @@ $(function () {
             .catch(function (error) {
                 console.log(error);
             }).then(function () {
-                var $profile = $("<i>").addClass("large material-icons").attr("id", "profileIcon").css("font-size", "60px").html("account_circle")
-                $("#profileIcon").empty()
-                $("#profileIcon").append($profile)
-                console.log("user not logged in")
-
-                var $signIn = $("<a>").attr("href", "#!").attr("id", "signIn")
-                var $signIn = $signIn.html("Sign In")
-                $("#loginControl").empty()
-                $("#loginControl").append($signIn)
+                dropdownOnSignOut();
             });
     });
     //-----------------------------------------------------------------------------------//
+
+    function dropdownOnSignIn() {
+        $("#profileIcon").empty();
+        $(".signIn").remove();
+
+        var $photo = $("<img>").attr("src", photoUrl).attr("id", "profilePicture");
+        $("#profileIcon").append($photo);
+
+        var $liProfile = $("<li>").addClass("profileLink");
+        var $profile = $("<a>").attr("href", "#!").html("Profile");
+        var $profile = $liProfile.append($profile);
+        $("#dropdown1").append($profile);
+        $("#dropdownMobile").append($profile.clone());
+
+        var $liFavorites = $("<li>").addClass("favoritesLink");
+        var $favorites = $("<a>").attr("href", "#!").html("Favorites");
+        var $favorites = $liFavorites.append($favorites)
+        $("#dropdown1").append($favorites);
+        $("#dropdownMobile").append($favorites.clone());
+
+        var $liSignout = $("<li>").addClass("signOut")
+        var $signOut = $("<a>").attr("href", "#!").html("Sign Out")
+        var $signOut = $liSignout.append($signOut)
+        $("#dropdown1").append($signOut);
+        $("#dropdownMobile").append($signOut.clone());
+    };
+
+    function dropdownOnSignOut() {
+        $(".profileLink").remove();
+        $(".favoritesLink").remove();
+        $(".signOut").remove();
+
+        var $profileImage = $("<i>").addClass("large material-icons").attr("id", "profileIcon").css("font-size", "60px").html("account_circle");
+        $("#profileIcon").empty();
+        $("#profileIcon").append($profileImage);
+        console.log("user not logged in");
+
+        var $liSignIn = $("<li>").addClass("signIn");
+        var $signIn = $("<a>").attr("href", "#!").html("Sign In");
+        var $signIn = $liSignIn.append($signIn);
+        $("#dropdown1").append($signIn);
+        $("#dropdownMobile").append($signIn.clone());
+    }
 
     //Materialize specific javascripts//
     $('.dropdown-trigger').dropdown({
