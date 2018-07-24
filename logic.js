@@ -16,12 +16,11 @@ var config = {
 
 //----------------------------------------------------------------------------
 
-//create const 'city' from input 
-$("#submit").on("click", function(event) {
+//event handler to create const 'city' from input when button with class ".btn" is clicked
+$(".btn").on("click", function(event) {
     event.preventDefault();
 
-    const city = $("#cityInput").val().trim();
-    getLocationId(city);
+    getLocationId($("#cityInput").val().trim());
     $("#cityInput").val("");
 });
     
@@ -43,9 +42,16 @@ $.ajax({
     
     console.log(response);
 
-    const entityID = response.location_suggestions[0].entity_id;
-    const entityType = response.location_suggestions[0].entity_type;
-    getRestaurants(entityID, entityType);
+    if(response.location_suggestions[0].entity_type === "city") {
+        alert("Please enter a valid city in the Raleigh area")
+        return;
+    }
+
+    //call getRestaurants function with two parameters from location APIs
+    getRestaurants(
+        response.location_suggestions[0].entity_id,
+        response.location_suggestions[0].entity_type
+    )
 });
 
 }
@@ -63,6 +69,7 @@ function getRestaurants(entityID, entityType) {
         beforeSend: function(xhr){xhr.setRequestHeader('user-key', 
         'b81c89ea8a3dba9037dd6ffe97c3a20b');},
     }).then(function(response) {
+        $("#restaurant-list").empty();
         displayRestaurants(response);
         console.log(response);
     });
@@ -70,26 +77,48 @@ function getRestaurants(entityID, entityType) {
 
 function displayRestaurants(response) {
     response.restaurants.forEach(function(data) {
-        const div = $("<div>");
-        const hName = $("<h5>");
+        
+        const divContainer = $("<div>").addClass("col s12 m7 grow");
+        const headerName = $("<h4>");
+        const divCardHorizontal = $("<div>").addClass("card horizontal");
+        const divCardImage = $("<div>").addClass("card-image");
+        const image = $("<img>").addClass("placeholder-image");
+        const divCardStacked = $("<div>").addClass("card-stacked");
+        const divCardContent = $("<div>").addClass("card-content");
+        const divCardAction = $("<div>").addClass("card-action");
         const rating = $("<p>");
         const cuisine = $("<p>");
         const cost = $("<p>");
-        div.append(hName, rating, cuisine, cost);
-        hName.html(data.restaurant.name).addClass("restaurant-font");
-        rating.html(data.restaurant.user_rating.aggregate_rating + " / 5").addClass("rating-style");
-        cuisine.html(data.restaurant.cuisines);
+        const address = $("<p>");
+        const favIcon = $("<i>").addClass("far fa-heart");
+        divContainer.append(divCardHorizontal);
+        divCardHorizontal.append(divCardImage, divCardStacked);
+        divCardImage.append(image);
+        image.attr("src", "placeholder.png");
+        divCardStacked.append(divCardContent, divCardAction);
+        divCardContent.append(headerName, rating, cuisine, cost, address);
+        divCardAction.html("Add to Favorites").append(favIcon);
+        headerName.html(data.restaurant.name);
+        rating.html("Rating: " + data.restaurant.user_rating.aggregate_rating + " / 5");
+        cuisine.html("Cuisine: " + data.restaurant.cuisines);
         cost.html("Average Cost for Two: " + data.restaurant.average_cost_for_two + "$");
-        $("#restaurantList").append(div);
+        address.html("Address: " + data.restaurant.location.address)
+        $("#restaurant-list").append(divContainer);
 
         restaurantdb.push(data.restaurant.name);
     })
     
 }
 
-
-
-
+$(document).on("click", ".fa-heart", function() {
+    if($(this).hasClass("far")) {
+        $(this).removeClass("far").addClass("fas");
+    }      
+    else {
+        $(this).removeClass("fas").addClass("far");
+    }
 })
   
 
+
+})
