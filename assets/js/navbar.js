@@ -16,7 +16,7 @@ $(function () {
         messagingSenderId: "134886336746"
     };
     firebase.initializeApp(config);
-
+    
     function addNavBar() {
         $("#entireNavBar").html(`
             <nav>

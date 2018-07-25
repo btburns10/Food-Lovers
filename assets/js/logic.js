@@ -9,7 +9,6 @@ var config = {
     storageBucket: "food-lovers-14947.appspot.com",
     messagingSenderId: "134886336746"
   };
-  firebase.initializeApp(config);
 
   const restaurantdb = firebase.database().ref("Restaurants")
   const searchHistory = firebase.database().ref("Search History")
@@ -94,7 +93,7 @@ function displayRestaurants(response) {
         divContainer.append(divCardHorizontal);
         divCardHorizontal.append(divCardImage, divCardStacked);
         divCardImage.append(image);
-        image.attr("src", "placeholder.png");
+        image.attr("src", "assets/images/placeholder.png");
         divCardStacked.append(divCardContent, divCardAction);
         divCardContent.append(headerName, rating, cuisine, cost, address);
         divCardAction.html("Add to Favorites").append(favIcon);
