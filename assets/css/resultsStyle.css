@@ -38,17 +38,22 @@ header{
     flex-wrap: wrap;
 }
 
+#flip {
+    display: flex;
+    flex-flow: column-reverse;
+}
+
+.input-field {
+    margin-left: 1%;
+}
+
 form {
-    margin: 1%;
-    padding: 1%;
+    position: relative;
+    top: 26px;
 }
 
 form input {
     width: 100%;
-}
-
-.btn {
-    background: #ee6e73;
 }
 
 .card .card-content {

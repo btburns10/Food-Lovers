@@ -18,15 +18,28 @@
     <div id="entireNavBar"></div>
     
     <div id="mainContent" class="main-content">
+     
+      <div class="input-field col s12">
 
-      <form>
-        <input id="cityInput" type="text" placeholder="enter city">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Search
-          <i class="material-icons right">send</i>
-        </button>
-      </form>
+        <form>
+          <div id="flip">
+            <select>
+              <option value="" disabled selected>Sort By</option>
+              <option value="1">Cost</option>
+              <option value="2">Rating</option>
+            </select>
+
+            <input id="cityInput" type="text" placeholder="enter city">  
+          </div>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Search
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+
+      </div>
 
       <div id="restaurant-list"></div>
+
     </div>
 
 
