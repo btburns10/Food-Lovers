@@ -15,6 +15,10 @@ var config = {
 
 //----------------------------------------------------------------------------
 
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+
 //event handler to create const 'city' from input when button with class ".btn" is clicked
 $(".btn").on("click", function(event) {
     event.preventDefault();
