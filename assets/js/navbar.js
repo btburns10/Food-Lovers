@@ -30,6 +30,9 @@ $(function () {
                         </a>
                         <ul class="right hide-on-med-and-down">
                             <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
                                 <a href="resultsBurns.html">Search</a>
                             </li>
                             <li>
@@ -46,12 +49,6 @@ $(function () {
             </nav>
             <!--Profile Dropdown Menu-->
             <ul class="dropdown-content" id="dropdown1">
-                <li>
-                    <a href="#1">Search</a>
-                </li>
-                <li>
-                    <a href="#1">Contact Us</a>
-                </li>
                 <li class="divider" id="accountLinks"></li>
             </ul>
             <!--xxxxxxxxxxxxxxxxxx-->

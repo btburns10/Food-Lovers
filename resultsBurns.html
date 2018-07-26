@@ -12,35 +12,25 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/resultsStyle.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
   </head>
 
   <body>
     <div id="entireNavBar"></div>
     
     <div id="mainContent" class="main-content">
-     
-      <div class="input-field col s12">
 
-        <form>
-          <div id="flip">
-            <select>
-              <option value="" disabled selected>Sort By</option>
-              <option value="1">Cost</option>
-              <option value="2">Rating</option>
-            </select>
-
-            <input id="cityInput" type="text" placeholder="enter city">  
-          </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Search
-            <i class="material-icons right">send</i>
-          </button>
-        </form>
-
-      </div>
+      <form>
+        <input id="cityInput" type="text" placeholder="enter city">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Search
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
 
       <div id="restaurant-list"></div>
-
     </div>
+
+    <div id="entireFooter"></div>
 
 
 
@@ -51,6 +41,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <script src='assets/js/navbar.js'></script>
+    <script src="assets/js/footer.js"></script>
     <script src="assets/js/logic.js"></script>
   </body>
 </html>

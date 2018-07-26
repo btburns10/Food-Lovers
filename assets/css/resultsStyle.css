@@ -12,6 +12,11 @@ header{
     position: absolute;
 }
 
+#mainContent {
+    min-height: 75vh;
+    overflow: auto;
+}
+
 #searchBar{
     width: 100%;
     position: fixed;
@@ -38,22 +43,17 @@ header{
     flex-wrap: wrap;
 }
 
-#flip {
-    display: flex;
-    flex-flow: column-reverse;
-}
-
-.input-field {
-    margin-left: 1%;
-}
-
 form {
-    position: relative;
-    top: 26px;
+    margin: 1%;
+    padding: 1%;
 }
 
 form input {
     width: 100%;
+}
+
+.btn {
+    background: #ee6e73;
 }
 
 .card .card-content {
