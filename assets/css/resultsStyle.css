@@ -61,7 +61,8 @@ form input {
 }
 
 .grow { 
-    transition: all .2s ease-in-out; 
+    transition: all .2s ease-in-out;
+    margin-left: 120px; 
 }
 
 .grow:hover {
@@ -75,5 +76,14 @@ form input {
 
 .fa-heart:hover {
     color: #ee6e73;
+    cursor: pointer;
+}
+
+.fas {
+    color: #ee6e73;
+}
+
+.margin-right {
+    margin-right: 100px;
 }
 
