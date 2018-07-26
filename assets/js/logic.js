@@ -15,11 +15,12 @@ var config = {
 
 //----------------------------------------------------------------------------
 
+//drop down search filter function
 $(document).ready(function(){
     $('select').formSelect();
   });
 
-//event handler to create const 'city' from input when button with class ".btn" is clicked
+//event handler to create variables from form when button with class ".btn" is clicked
 $(".btn").on("click", function(event) {
     event.preventDefault();
 
@@ -78,6 +79,7 @@ function getRestaurants(entityID, entityType) {
     });
 }
 
+//display to div with id #restaurant-list the results from getRestaurants()
 function displayRestaurants(response) {
     response.restaurants.forEach(function(data) {
         
@@ -93,6 +95,8 @@ function displayRestaurants(response) {
         const cuisine = $("<p>");
         const cost = $("<p>");
         const address = $("<p>");
+        const link = $("<a>").addClass("margin-right");
+        const spanFav = $("<span>");
         const favIcon = $("<i>").addClass("far fa-heart");
         divContainer.append(divCardHorizontal);
         divCardHorizontal.append(divCardImage, divCardStacked);
@@ -100,7 +104,9 @@ function displayRestaurants(response) {
         image.attr("src", "assets/images/placeholder.png");
         divCardStacked.append(divCardContent, divCardAction);
         divCardContent.append(headerName, rating, cuisine, cost, address);
-        divCardAction.html("Add to Favorites").append(favIcon);
+        divCardAction.append(link, spanFav);
+        spanFav.html("Add to Favorites").append(favIcon);
+        link.attr("href", data.restaurant.url).attr("target", "_blank").text("Make a reservation");
         headerName.html(data.restaurant.name);
         rating.html("Rating: " + data.restaurant.user_rating.aggregate_rating + " / 5");
         cuisine.html("Cuisine: " + data.restaurant.cuisines);
