@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Food Lovers</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/resultsStyle.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+  </head>
+
+  <body>
+    <div id="entireNavBar"></div>
+    
+    <div id="mainContent" class="main-content">
+     
+      <div class="input-field col s12">
+
+        <form>
+          <div id="flip">
+            <select>
+              <option value="" disabled selected>Sort By</option>
+              <option value="1">Cost</option>
+              <option value="2">Rating</option>
+            </select>
+
+            <input id="cityInput" type="text" placeholder="enter city">  
+          </div>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Search
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+
+      </div>
+
+      <div id="restaurant-list"></div>
+
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src='assets/js/navbar.js'></script>
+    <script src="assets/js/logic.js"></script>
+  </body>
+</html>

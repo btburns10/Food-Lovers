@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Materialize/Navbar+Footer CDNs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--xxxxxxxxxxxxxxxxxx-->
+
+    <!--Navbar and Footer CSS-->
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <!--xxxxxxxxxxxxxxxxxx-->
+    <link rel="stylesheet" href="assets/css/contact.css">
+
+</head>
+
+<body>
+    <div id="entireNavBar"></div>
+    <div id="mainContent">
+        <h5 class="container center-align">
+            While it sounds cliché, we value your feedback. In order to improve and provide a better experience we need to know what
+            it is you want! You can't know more until you admit what you don't know.
+        </h5>
+        <div class="container card z-depth-3">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="first_name" type="text" class="validate">
+                            <label class="active" for="first_name">First</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                            <span class="helper-text" data-error="Invalid e-mail address."></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">comment</i>
+                                    <textarea id="textarea1" class="materialize-textarea" data-length="200"></textarea>
+                                    <label for="textarea1">Comment</label>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="entireFooter"></div>
+
+
+    <!--Scripts required for navbar/footer-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src='assets/js/navbar.js'></script>
+    <script src="assets/js/footer.js"></script>
+    <!--xxxxxxxxxxxxxxxxxx-->
+    <script src="assets/js/contact.js"></script>
+
+</body>
+
+</html>
