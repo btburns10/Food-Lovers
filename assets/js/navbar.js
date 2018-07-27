@@ -16,7 +16,7 @@ $(function () {
         messagingSenderId: "134886336746"
     };
     firebase.initializeApp(config);
-    
+
     function addNavBar() {
         $("#entireNavBar").html(`
             <nav>
@@ -34,6 +34,9 @@ $(function () {
                             </li>
                             <li>
                                 <a href="resultsBurns.html">Search</a>
+                            </li>
+                            <li>
+                                <a href="review.html">Temp link to review</a>
                             </li>
                             <li>
                                 <a href="contact.html">Contact Us</a>
