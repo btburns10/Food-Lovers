@@ -21,7 +21,7 @@ $(function () {
         $("#entireNavBar").html(`
             <nav>
                 <div class="nav-wrapper">
-                    <div class="container">
+                    <div id="navbarMargins">
                         <a href="index.html" class="brand-logo left">
                             <img src="assets/images/foodLogoPNG.png" id="headerLogo">
                         </a>

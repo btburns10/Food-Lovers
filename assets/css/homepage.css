@@ -1,6 +1,5 @@
-
 #mainContent{  
-    height: 80vh;
+    height: 800px;
     background: url(../images/eatintgBackground.png);
     background-repeat:no-repeat;
     background-size: cover;
@@ -9,7 +8,7 @@
 
 h1{
     text-align: center;
-    margin-bottom: 2%;
+    margin-top: 40px;
     font-size: 45px;
 }
 h3,
@@ -17,12 +16,15 @@ h5{
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
-#weeklyItem{
-    margin: auto 50px;
+#weeklyContent{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    min-height: 500px;
 }
-.card{
-    margin-bottom: 50px;
+.weeklyItem{
+    max-width: 648px;
+    margin: 10px;
 }
 
 .card a{
@@ -55,10 +57,34 @@ h5{
     left: 60%
 }
 #carouselItemInfo p{
-    font-size: 20px;
+    font-size: 12px;
     margin: 10px 20px;
 }
-
-#weeklyText{
-    height: 225px;
+@media screen and (max-width: 768px){
+    #mainContent{
+        height: 500px;
+    }
+    h1{
+        margin-top: 30px;
+    }
+    #weeklyContent{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+}
+@media screen and (min-width: 1400px) {
+    #carouselItemInfo p{
+        font-size: 18px;
+        margin: 30px;
+    }
+    #weeklyContent{
+        min-height: 600px;
+    }
+}
+@media screen and (min-width: 1800px) {
+    #carouselItemInfo p{
+        font-size: 22px;
+        margin: 40px;
+    }
 }
