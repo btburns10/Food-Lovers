@@ -1,9 +1,15 @@
 * {
     box-sizing: border-box;
 }
-
+#ratinglbl,
+#cuisinelbl,
 #addLabel {
     font-weight: bold;
+
+}
+#rating,
+#cuisine {
+    font-weight: 100;
 
 }
 #address1,
