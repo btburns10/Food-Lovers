@@ -13,36 +13,22 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-  <link rel="stylesheet" href="css/review.css">
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/review.css">
 
 </head>
 
 <body>
 
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">Remind Me..</a>
-        </li>
-        <li>
-          <a href="#">Contact Us</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <div id="entireNavBar"></div>
 
-  <div class="container">
+  <div class="container" id="mainContent">
     <div class="row">
       <div class="col s12 m7">
         <div class="card z-depth-3">
           <div class="card-image">
-            <img src="test_restaurant.jpeg">
+            <img src="assets/images/test_restaurant.jpeg">
             <span class="card-title">Callaway's Seafood</span>
           </div>
           <div class="card-content"></div>
@@ -98,13 +84,13 @@
 
               <div class="carousel carousel-slider">
                 <a class="carousel-item" href="#one!">
-                  <img src="blog2_allfood.png">
+                  <img src="assets/images/blog2_allfood.png">
                 </a>
                 <a class="carousel-item" href="#two!">
-                  <img src="foodlogoPNG.png">
+                  <img src="assets/images/foodlogoPNG.png">
                 </a>
                 <a class="carousel-item" href="#three!">
-                  <img src="test_restaurant.jpeg">
+                  <img src="assets/images/test_restaurant.jpeg">
                 </a>
                 <!-- <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a> -->
               </div>
@@ -124,11 +110,15 @@
   </div>
 
 
+  <div id="entireFooter"></div>
 
 
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="./test.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/test.js"></script>
 
 </body>
 </body>
