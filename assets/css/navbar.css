@@ -1,0 +1,105 @@
+
+/* Add this to your html
+<!-- Materialize/Navbar CDNs -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/navbar.css">
+<!--xxxxxxxxxxxxxxxxxx--> */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    position: relative;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #fff
+}
+main {
+    flex: 1 0 auto;
+  }
+
+#mainContent{
+    position: relative;
+    top: 90px;
+    margin-bottom: 90px; 
+}
+
+#navbarMargins{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#headerLogo,
+#profilePicture{
+    height: 80px;
+    padding-top: 5px;
+}
+#profilePicture{
+    border-radius: 50%;
+}
+.navbarDropdown {
+    background-color: #FFFFFF;
+    margin: 0;
+    display: none;
+    max-height: auto;
+      margin-left: -1px; /* Add this to keep dropdown in line with edge of navbar */
+    overflow: hidden; /* Changed this from overflow-y:auto; to overflow:hidden; */
+    opacity: 0;
+    position: absolute;
+    top: -90px;
+    white-space: nowrap;
+    z-index: 1;
+    will-change: width, height;
+}
+
+#dropdown1 li,
+#dropdownMobile li{
+      text-align: right;
+}
+.sidenav-trigger.right{
+    display: flex;
+    flex: column;
+    align-items: center;
+    height: 90px;
+}
+
+
+/* overrides navbar to make larger */
+nav {
+    z-index: 9000;
+    height: 90px;
+    line-height: 90px;
+    position: absolute;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 90px;
+    line-height: 90px;
+}
+
+nav .button-collapse i {
+    height: 90px;
+    line-height: 90px;
+}
+
+nav .brand-logo { 
+    font-size: 3rem; 
+}
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 90px;
+        line-height: 90px;
+    }
+
+}
+/* --------------------------------- */

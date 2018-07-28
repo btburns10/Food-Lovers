@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Restaurant Info</title>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified JavaScript -->
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/review.css">
+
+</head>
+
+<body>
+<div id="entireNavBar"></div>
+ 
+  <div id="mainContent" class="container">
+    <div class="row">
+      <div class="col s12 m7">
+        <div class="card z-depth-3">
+          <div class="card-image">
+            <img id="display-img" img src="assets/images/test_restaurant.jpeg">
+            <span id="rest-name" class="card-title">Callaway's Seafood</span>
+          </div>
+          <div class="card-content"></div>
+          <div class="card-action">
+            <a>
+              <i class="small material-icons">web</i>
+              <href="#" id="web"> Website</a>
+            <a>
+              <i class="small material-icons">restaurant_menu</i>
+              <href="#" id="menu"> Menu </a>
+            <a>
+              <i id="favorite" class="small material-icons">favorite_border</i>
+              <href="#" >Favorites</a>  
+          </div>
+        </div>
+      </div>
+
+
+      <ul id="rest-info" class="collection with-header z-depth-3">
+        <li class="collection-header">
+          <h4 id"rest-head">Callaway's Seafood</h4>
+        </li>
+        <li class="collection-item" id="addLabel">Address:
+          <p id="address1">7 Rhygate Court</p>
+          <p id="address2">Durham, NC 27713</p>
+          <!-- <a><i class="small material-icons">919-555-1212</i> </a> -->
+          <a>
+            <i class="small material-icons">call</i>919.555.1212</a>
+
+        </li>
+        <li id="cuisinelbl" class="collection-item">Cuisine:
+         <scan id="cuisine">Seafood</scan>
+        </li>
+        <li id="ratinglbl" class="collection-item">Rating:
+          <scan id="rating">3.5</scan>
+        </li>
+        <li class="collection-item"></li>
+        <li class="collection-item">Alvin</li>
+      </ul>
+
+    </div>
+    <div class="col s12 m7 z-depth-3">
+
+      <h4 class="header">What are people saying?</h4>
+      <div class="card">
+        <!-- <div class="row">
+             <div class="card-stacked col s4"> -->
+        <!-- <div class="col s4"> -->
+        <div class="card-content">
+          <div class="row">
+
+            <p id="review-name"> Reviewer Name
+              <i class="small material-icons">sentiment_satisfied</i>
+              <p id="review">This is a review - the food was awesome! You should go there as soon as possible!</p>
+
+
+              <div class="carousel carousel-slider">
+                <a class="carousel-item" href="#one!">
+                  <img src="assets/images/blog2_allfood.png">
+                </a>
+                <a class="carousel-item" href="#two!">
+                  <img src="assets/images/test_restaurant.jpeg">
+                </a>
+                <a class="carousel-item" href="#three!">
+                  <img src="assets/images/test_restaurant.jpeg">
+                </a>
+                <!-- <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a> -->
+              </div>
+              <div class="card-action">
+                  
+                <a id="prev" class="waves-effect waves-light red center-align btn-large disabled">Prev</a>
+                <a id ="next" class="waves-effect waves-light red  center-align btn-large">Next</a>
+              
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+  <div id="entireFooter"></div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/review.js"></script>
+
+</body>
+</body>
+
+</html>
