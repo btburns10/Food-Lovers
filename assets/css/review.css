@@ -1,9 +1,15 @@
 * {
     box-sizing: border-box;
 }
-
+#ratinglbl,
+#cuisinelbl,
 #addLabel {
     font-weight: bold;
+
+}
+#rating,
+#cuisine {
+    font-weight: 100;
 
 }
 #address1,
@@ -17,4 +23,8 @@
 #reviewer-name {
     text-align:center
 
+}
+
+#rest-info {
+    margin-top:10px;
 }

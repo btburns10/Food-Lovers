@@ -46,7 +46,7 @@ main {
 #profilePicture{
     border-radius: 50%;
 }
-.dropdown-content {
+.navbarDropdown {
     background-color: #FFFFFF;
     margin: 0;
     display: none;
