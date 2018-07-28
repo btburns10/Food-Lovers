@@ -82,19 +82,32 @@ function getRestaurants(entityID, entityType) {
 //display to div with id #restaurant-list the results from getRestaurants()
 function displayRestaurants(response) {
     response.restaurants.forEach(function(data) {
-        
+
+        const restaurantId = data.restaurant.R.res_id;
+        const name = data.restaurant.name;
+        const rating = data.restaurant.user_rating.aggregate_rating;
+        const cuisine = data.restaurant.cuisines;
+        const cost = data.restaurant.average_cost_for_two;
+        const address = data.restaurant.location.address;
+        const website = data.restaurant.url;
+        const menu = data.restaurant.menu_url;
+
+        localStorage.setItem("restaurantData", JSON.stringify({restaurantId, name, rating, cuisine, cost, address, website, menu}));
+        var test = JSON.parse(localStorage.getItem("restaurantData"));
+        console.log(test);
+
         const divContainer = $("<div>").addClass("col s12 m7 grow");
         const headerName = $("<h4>");
-        const divCardHorizontal = $("<div>").addClass("card horizontal");
+        const divCardHorizontal = $("<div>").addClass("card horizontal").attr("id", restaurantId).attr("onclick", "window.location.href = 'https://btburns10.github.io/Food-Lovers/review.html' ");
         const divCardImage = $("<div>").addClass("card-image");
         const image = $("<img>").addClass("placeholder-image");
         const divCardStacked = $("<div>").addClass("card-stacked");
         const divCardContent = $("<div>").addClass("card-content");
         const divCardAction = $("<div>").addClass("card-action");
-        const rating = $("<p>");
-        const cuisine = $("<p>");
-        const cost = $("<p>");
-        const address = $("<p>");
+        const pRating = $("<p>");
+        const pCuisine = $("<p>");
+        const pCost = $("<p>");
+        const pAddress = $("<p>");
         const link = $("<a>").addClass("margin-right");
         const spanFav = $("<span>");
         const favIcon = $("<i>").addClass("far fa-heart");
@@ -103,21 +116,30 @@ function displayRestaurants(response) {
         divCardImage.append(image);
         image.attr("src", "assets/images/placeholder.png");
         divCardStacked.append(divCardContent, divCardAction);
-        divCardContent.append(headerName, rating, cuisine, cost, address);
+        divCardContent.append(headerName, pRating, pCuisine, pCost, pAddress);
         divCardAction.append(link, spanFav);
         spanFav.html("Add to Favorites").append(favIcon);
         link.attr("href", data.restaurant.url).attr("target", "_blank").text("Make a reservation");
-        headerName.html(data.restaurant.name);
-        rating.html("Rating: " + data.restaurant.user_rating.aggregate_rating + " / 5");
-        cuisine.html("Cuisine: " + data.restaurant.cuisines);
-        cost.html("Average Cost for Two: " + data.restaurant.average_cost_for_two + "$");
-        address.html("Address: " + data.restaurant.location.address)
+        headerName.html(name);
+        pRating.html("Rating: " + rating + " / 5");
+        pCuisine.html("Cuisine: " + cuisine);
+        pCost.html("Average Cost for Two: " + cost + "$");
+        pAddress.html("Address: " + address)
         $("#restaurant-list").append(divContainer);
 
         restaurantdb.push(data.restaurant.name);
     })
     
 }
+
+$(document).on("dblclick", ".card", function() {
+    var id = $(this).attr("id");
+    console.log(id);
+})
+
+$(document).on("click", "a", function(e) {
+    e.stopPropagation();
+})
 
 $(document).on("click", ".fa-heart", function() {
     if($(this).hasClass("far")) {
