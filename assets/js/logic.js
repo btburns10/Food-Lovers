@@ -14,8 +14,21 @@ var config = {
   const searchHistory = firebase.database().ref("Search History")
 
 //----------------------------------------------------------------------------
+const filter = "";
+const order = "";
 const filterArray = ["cost", "rating"];
 const orderArray = ["asc", "desc"];
+// const favoritesList = [];
+// const restaurant = {
+//     id = restaurantId,
+//     name = name,
+//     rating = rating,
+//     cuisine = cuisine,
+//     cost = cost,
+//     address = address,
+//     website = website,
+//     menu = menu
+// }
 
 
 //drop down search filter function
@@ -30,11 +43,15 @@ $(".btn").on("click", function(event) {
     getLocationId($("#cityInput").val().trim());
     $("#cityInput").val("");
 
-    const filter = $("#selectOne").val() - 1;
-    console.log(filterArray[filter]);
+    // if(($("#selectOne").val()) !== "") {
+    //     const val = $("#selectOne").val() - 1;
+    //     filter
+    // // }
+    
+    // console.log(filterArray[filter]);
 
-    const order = $("#selectTwo").val() - 1;
-    console.log(orderArray[order]);
+    // order = $("#selectTwo").val() - 1;
+    // console.log(orderArray[order]);
 });
     
 //ajax call function to pull city id
@@ -115,16 +132,13 @@ function displayRestaurants(response) {
         const pCost = $("<p>");
         const pAddress = $("<p>");
         const link = $("<a>").addClass("margin-right");
-        const spanFav = $("<span>");
-        const favIcon = $("<i>").addClass("far fa-heart");
         divContainer.append(divCardHorizontal);
         divCardHorizontal.append(divCardImage, divCardStacked);
         divCardImage.append(image);
         image.attr("src", "assets/images/placeholder.png");
         divCardStacked.append(divCardContent, divCardAction);
         divCardContent.append(headerName, pRating, pCuisine, pCost, pAddress);
-        divCardAction.append(link, spanFav);
-        spanFav.html("Add to Favorites").append(favIcon);
+        divCardAction.append(link);
         link.attr("href", data.restaurant.url).attr("target", "_blank").text("Make a reservation");
         headerName.html(name);
         pRating.html("Rating: " + rating + " / 5");
@@ -139,8 +153,10 @@ function displayRestaurants(response) {
 }
 
 $(document).on("dblclick", ".card", function() {
+    //open up review page in separate tab
     window.open("https://btburns10.github.io/Food-Lovers/review.html", "_blank");
 
+    //store restaurant data to local storage
     var restaurantId = $(this).attr("id");
     var name = $(this).attr("name");
     var rating = $(this).attr("rating");
@@ -156,16 +172,15 @@ $(document).on("dblclick", ".card", function() {
 
 })
 
-$(document).on("click", "a", function(e) {
-    e.stopPropagation();
-})
-
 $(document).on("click", ".fa-heart", function() {
+    
     if($(this).hasClass("far")) {
         $(this).removeClass("far").addClass("fas");
+        localStorage.push("restaurantData", JSON.stringify({restaurantId, name, rating, cuisine, cost, address, website, menu}));
     }      
     else {
         $(this).removeClass("fas").addClass("far");
+        localStorage.clear();
     }
 })
   
