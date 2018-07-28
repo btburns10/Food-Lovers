@@ -28,8 +28,8 @@ var config = {
 $(document).ready(function () {
 
   //Set variables 
-const restaurantReviewDB = firebase.database().ref("Restaurants")
-var header = "";
+// const restaurantReviewDB = 
+//var header = "";
 var displayImg = "";
 var restaurantId ="17052855";
 var fav = false;
@@ -45,9 +45,12 @@ setInterval(function() {
 
 
 
- // getDataFromLocalStorage();
+   getDataFromLocalStorage();
 
    reviewCall();
+
+
+   
 
 
  //On click for adding and subtracting rows from favorite list
@@ -66,21 +69,22 @@ setInterval(function() {
   });  
 
 // Get the data from Local storage that was set on previous page  
-// function getDataFromLocalStorage(){
-//   var obj=JSON.parse(localStorage.getItem("restaurantData"));
-//   console.log(obj);
+function getDataFromLocalStorage(){
+  var obj=JSON.parse(localStorage.getItem("restaurantData"));
+  console.log("created obj from local storage");
+  console.log(obj);
 
-//         restaurantId = restaurantData.restaurantId;
-//         $("#display-img").src(obj.       );
-//         $("#rest-name").txt(obj.);
-//         $("#web").href(obj.);
-//         $("#menu").href(obj.);
-//         $("#address1").txt(obj.);
-//         $("#address2").txt(obj.);
-//         $("#cuisine").txt(obj.);
-//         $("#rating").txt(obj. ).text("/5");
-
-//       }       
+        restaurantId = obj.restaurantId;
+  //      $("#display-img").src(obj.       );
+        $("#rest-name").text(obj.name);
+        $("#rest-head").text(obj.name);
+        $("#web").attr("href",obj.website);
+        $("#menu").attr("href",obj.menu);
+        $("#address1").text(obj.address);
+   //     $("#address2").txt(obj.);
+        $("#cuisine").text(obj.cuisine);
+        $("#rating").text(obj.rating + "/ 5");
+       }       
 
 function reviewCall(){
 
@@ -96,7 +100,8 @@ function reviewCall(){
   }).then(function(response) {
       
       console.log(response);
-  
+      const restaurantReviewDB = response;
+      console.log(restaurantReviewDB)
 
 }
 
@@ -104,4 +109,4 @@ function reviewCall(){
 
 
 
-}) 
+})
