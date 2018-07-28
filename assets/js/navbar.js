@@ -51,12 +51,12 @@ $(function () {
                 </div>
             </nav>
             <!--Profile Dropdown Menu-->
-            <ul class="dropdown-content" id="dropdown1">
+            <ul class="dropdown-content navbarDropdown" id="dropdown1">
                 <li class="divider" id="accountLinks"></li>
             </ul>
             <!--xxxxxxxxxxxxxxxxxx-->
             <!--Mobile Dropdown Menu-->
-            <ul class="dropdown-content right hide-on-large-only" id="dropdownMobile">
+            <ul class="dropdown-content navbarDropdowndown right hide-on-large-only" id="dropdownMobile">
                 <li>
                     <a href="#1">Search</a>
                 </li>
