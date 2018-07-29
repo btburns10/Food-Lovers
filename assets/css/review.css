@@ -38,3 +38,11 @@
 #review-card {
     padding-top: 0px;
 }
+
+.header {
+   
+   margin-top:36px;
+   margin-left:10px;
+   font-size: 36px;
+   font-weight: bolder;
+}

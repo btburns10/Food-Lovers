@@ -112,8 +112,8 @@ function reviewCall(){
         console.log(restaurantReview.user_reviews[0].review.review_time);
         console.log(restaurantReview.user_reviews[0].review.review_text);
         $("#review-name").text(restaurantReview.user_reviews[0].review.user.name);
-      //  $("#rating-text").text(restaurantReview.user_reviews[0].review.rating_text);
-      //  $("#review-time").text(restaurantReview.user_reviews[0].review.review_time);
+    //    $("#rating-text").text(restaurantReview.user_reviews[0].review.rating_text);
+    //    $("#review-time").text(restaurantReview.user_reviews[0].review.review_time);
         $("#review").text(restaurantReview.user_reviews[0].review.review_text);
       }
 
@@ -125,13 +125,13 @@ $("#next").on("click", function(event){
   i++;
   if (i<=4){
 
-    $("#review-name").empty();
-    $("#rating-text").empty();
-    $("#review-time").empty();
-    $("#review").empty();
+    $("#review-name").html("");
+    $("#rating-text").html("");
+    $("#review-time").html("");
+    $("#review").html("");
     $("#review-name").text(restaurantReview.user_reviews[i].review.user.name);
-    // $("#rating-text").text(restaurantReview.user_reviews[i].review.rating_text);
-    // $("#review-time").text(restaurantReview.user_reviews[i].review.review_time);
+  //  $("#rating-text").text(restaurantReview.user_reviews[i].review.rating_text);
+  //  $("#review-time").text(restaurantReview.user_reviews[i].review.review_time);
     $("#review").text(restaurantReview.user_reviews[i].review.review_text);
 } else {
     // $("#next").addclass("disabled");
