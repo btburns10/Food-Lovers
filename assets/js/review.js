@@ -123,21 +123,61 @@ function reviewCall(){
 $("#next").on("click", function(event){
   event.preventDefault();
   i++;
-  if (i<=4){
+  console.log(i +" next button i");
+
+  if (i<=3){
 
     $("#review-name").html("");
     $("#rating-text").html("");
     $("#review-time").html("");
     $("#review").html("");
+    $("#prev").removeClass("disabled");
+    $("#review-name").text(restaurantReview.user_reviews[i].review.user.name);
+  //  $("#rating-text").text(restaurantReview.user_reviews[i].review.rating_text);
+  //  $("#review-time").text(restaurantReview.user_reviews[i].review.review_time);
+    $("#review").text(restaurantReview.user_reviews[i].review.review_text);
+  }else if (i=4) {
+     $("#next").addClass("disabled");
+     $("#review-name").text(restaurantReview.user_reviews[i].review.user.name);
+     //  $("#rating-text").text(restaurantReview.user_reviews[i].review.rating_text);
+     //  $("#review-time").text(restaurantReview.user_reviews[i].review.review_time);
+       $("#review").text(restaurantReview.user_reviews[i].review.review_text);
+
+  
+ }
+
+})
+
+$("#prev").on("click", function(event){
+  event.preventDefault();
+  i--;
+  console.log(i +" prev button i");
+
+
+
+  if (i>0){
+    console.log("inside of i>0")
+    $("#review-name").html("");
+    $("#rating-text").html("");
+    $("#review-time").html("");
+    $("#review").html("");
+    $("#next").removeClass("disabled");
     $("#review-name").text(restaurantReview.user_reviews[i].review.user.name);
   //  $("#rating-text").text(restaurantReview.user_reviews[i].review.rating_text);
   //  $("#review-time").text(restaurantReview.user_reviews[i].review.review_time);
     $("#review").text(restaurantReview.user_reviews[i].review.review_text);
 } else {
-    // $("#next").addclass("disabled");
   
- }
+  $("#prev").addClass("disabled");
+  $("#review-name").text(restaurantReview.user_reviews[0].review.user.name);
+  //  $("#rating-text").text(restaurantReview.user_reviews[i].review.rating_text);
+  //  $("#review-time").text(restaurantReview.user_reviews[i].review.review_time);
+    $("#review").text(restaurantReview.user_reviews[0].review.review_text);
+
+}
 
 })
+
+
 
 }})
