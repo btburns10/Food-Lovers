@@ -33,7 +33,8 @@ $(document).ready(function () {
 var displayImg = "";
 var restaurantId ="17052855";
 var fav = false;
-
+var i=0;
+var restaurantReview=[];
 
 // rotate slider
 setInterval(function() {
@@ -81,7 +82,7 @@ function getDataFromLocalStorage(){
         $("#web").attr("href",obj.website);
         $("#menu").attr("href",obj.menu);
         $("#address1").text(obj.address);
-   //     $("#address2").txt(obj.);
+        $("#cost").text(obj.cost);
         $("#cuisine").text(obj.cuisine);
         $("#rating").text(obj.rating + "/ 5");
        }       
@@ -97,16 +98,46 @@ function reviewCall(){
       async: true,
       beforeSend: function(xhr){xhr.setRequestHeader('user-key', 
       'b81c89ea8a3dba9037dd6ffe97c3a20b');},
-  }).then(function(response) {
+  }).then(function(response){
       
       console.log(response);
-      const restaurantReviewDB = response;
-      console.log(restaurantReviewDB)
+      restaurantReview = response;
+      console.log(restaurantReview)
+    if (restaurantReview.reviews_count === 0 ){
+        $("#review-name").text("No Reviews");
+        $("#next").addclass("disabled");
+    } else {
+        console.log(restaurantReview.user_reviews[0].review.user.name);
+        console.log(restaurantReview.user_reviews[0].review.rating_text);
+        console.log(restaurantReview.user_reviews[0].review.review_time);
+        console.log(restaurantReview.user_reviews[0].review.review_text);
+        $("#review-name").text(restaurantReview.user_reviews[0].review.user.name);
+      //  $("#rating-text").text(restaurantReview.user_reviews[0].review.rating_text);
+      //  $("#review-time").text(restaurantReview.user_reviews[0].review.review_time);
+        $("#review").text(restaurantReview.user_reviews[0].review.review_text);
+      }
 
-}
 
-  )}
+    });
 
+$("#next").on("click", function(event){
+  event.preventDefault();
+  i++;
+  if (i<=4){
 
+    $("#review-name").empty();
+    $("#rating-text").empty();
+    $("#review-time").empty();
+    $("#review").empty();
+    $("#review-name").text(restaurantReview.user_reviews[i].review.user.name);
+    // $("#rating-text").text(restaurantReview.user_reviews[i].review.rating_text);
+    // $("#review-time").text(restaurantReview.user_reviews[i].review.review_time);
+    $("#review").text(restaurantReview.user_reviews[i].review.review_text);
+} else {
+    // $("#next").addclass("disabled");
+  
+ }
 
 })
+
+}})
