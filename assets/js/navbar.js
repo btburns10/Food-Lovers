@@ -72,184 +72,133 @@ $(function () {
     addNavBar();
 
     // Checks if there is a user signed in, gets info, changes html accordingly//
-    var user = firebase.auth().currentUser;
-    var name, email, photoUrl, uid, emailVerified;
 
-    userLoggedIn = false;
 
-    if (user != null) {
-        userLoggedIn = true;
-        name = user.displayName;
-        email = user.email;
-        photoUrl = user.photoURL;
-        emailVerified = user.emailVerified;
-        uid = user.uid;
-        // The user's ID, unique to the Firebase project. Do NOT use
-        // this value to authenticate with your backend server, if
-        // you have one. Use User.getToken() instead.
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user != null) {
+            //User is signed in.
+            name = user.displayName;
+            email = user.email;
+            photoUrl = user.photoURL;
+            emailVerified = user.emailVerified;
+            uid = user.uid;
+            // The user's ID, unique to the Firebase project. Do NOT use
+            // this value to authenticate with your backend server, if
+            // you have one. Use User.getToken() instead.
+            dropdownOnSignIn();
+        } else {
+            dropdownOnSignOut();
+        }
+    });
 
-        if (userLoggedIn === true) {
-            var $profile = $("<img>").attr("src", photoUrl)
+        //-------------------------------------------//
+
+        //Google Sign In
+        $(document).on("click", ".signIn", function () {
+            var provider = new firebase.auth.GoogleAuthProvider();
+
+            firebase.auth().signInWithPopup(provider).then(function (result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                console.log(result.credential.accessToken)
+                // The signed-in user info.
+                var user = result.user;
+                var user = firebase.auth().currentUser;
+                if (user != null) {
+                    name = user.displayName;
+                    email = user.email;
+                    photoUrl = user.photoURL;
+                    emailVerified = user.emailVerified;
+                    uid = user.uid;
+                    // The user's ID, unique to the Firebase project. Do NOT use
+                    // this value to authenticate with your backend server, if
+                    // you have one. Use User.getToken() instead.
+                    user.providerData.forEach(function (profile) {
+                        console.log("Sign-in provider: " + profile.providerId);
+                        console.log("  Provider-specific UID: " + profile.uid);
+                        console.log("  Name: " + profile.displayName);
+                        console.log("  Email: " + profile.email);
+                        console.log("  Photo URL: " + profile.photoURL);
+                    })
+                };
+            }).catch(function (error) {
+                console.log(error.code)
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+                console.log("Fail")
+            });
+        });
+
+
+        //-------------------------------------------------------------//
+
+        $(document).on("click", ".signOut", function () {
+            firebase.auth().signOut()
+                .then(function () {
+                    console.log("signed out")
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        });
+        //-----------------------------------------------------------------------------------//
+
+        function dropdownOnSignIn() {
             $("#profileIcon").empty();
-            $("#profileIcon").append($profile);
+            $(".signIn").remove();
 
-            var $signOut = $("<a>").attr("href", "#!").addClass("signOut")
-            var $signOut = $signOut.html("Sign Out");
-            $("#dropdown1").empty();
+            var $photo = $("<img>").attr("src", photoUrl).attr("id", "profilePicture");
+            $("#profileIcon").append($photo);
+
+            var $liProfile = $("<li>").addClass("profileLink");
+            var $profile = $("<a>").attr("href", "#!").html("Profile");
+            var $profile = $liProfile.append($profile);
+            $("#dropdown1").append($profile);
+            $("#dropdownMobile").append($profile.clone());
+
+            var $liFavorites = $("<li>").addClass("favoritesLink");
+            var $favorites = $("<a>").attr("href", "#!").html("Favorites");
+            var $favorites = $liFavorites.append($favorites)
+            $("#dropdown1").append($favorites);
+            $("#dropdownMobile").append($favorites.clone());
+
+            var $liSignout = $("<li>").addClass("signOut")
+            var $signOut = $("<a>").attr("href", "#!").html("Sign Out")
+            var $signOut = $liSignout.append($signOut)
             $("#dropdown1").append($signOut);
+            $("#dropdownMobile").append($signOut.clone());
+        };
+
+        function dropdownOnSignOut() {
+            $(".profileLink").remove();
+            $(".favoritesLink").remove();
+            $(".signOut").remove();
+
+            var $profileImage = $("<i>").addClass("large material-icons").attr("id", "profileIcon").css("font-size", "60px").html("account_circle");
+            $("#profileIcon").empty();
+            $("#profileIcon").append($profileImage);
+            console.log("user not logged in");
+
+            var $liSignIn = $("<li>").addClass("signIn");
+            var $signIn = $("<a>").attr("href", "#!").html("Sign In");
+            var $signIn = $liSignIn.append($signIn);
+            $("#dropdown1").append($signIn);
+            $("#dropdownMobile").append($signIn.clone());
         }
 
-    } else {
-        console.log(userLoggedIn)
-
-        var $profile = $("<i>").addClass("large material-icons").attr("id", "profileIcon").css("font-size", "60px").html("account_circle");
-        $("#profileIcon").empty();
-        $("#profileIcon").append($profile);
-        console.log("user not logged in");
-
-        var $li = $("<li>").addClass("signIn");
-        var $signIn = $("<a>").attr("href", "#!").html("Sign In");
-        var $signIn = $li.append($signIn)
-
-        $("#dropdown1").append($signIn);
-        $("#dropdownMobile").append($signIn.clone());
-
-    }
-
-    //-------------------------------------------//
-
-    //Google Sign In
-    $(document).on("click", ".signIn", function () {
-        var provider = new firebase.auth.GoogleAuthProvider();
-
-        firebase.auth().signInWithPopup(provider).then(function (result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            console.log(result.credential.accessToken)
-            // The signed-in user info.
-            var user = result.user;
-            var user = firebase.auth().currentUser;
-            if (user != null) {
-                name = user.displayName;
-                email = user.email;
-                photoUrl = user.photoURL;
-                emailVerified = user.emailVerified;
-                uid = user.uid;
-                // The user's ID, unique to the Firebase project. Do NOT use
-                // this value to authenticate with your backend server, if
-                // you have one. Use User.getToken() instead.
-                user.providerData.forEach(function (profile) {
-                    console.log("Sign-in provider: " + profile.providerId);
-                    console.log("  Provider-specific UID: " + profile.uid);
-                    console.log("  Name: " + profile.displayName);
-                    console.log("  Email: " + profile.email);
-                    console.log("  Photo URL: " + profile.photoURL);
-                })
-            };
-            userLoggedIn = true;
-        }).catch(function (error) {
-            console.log(error.code)
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
-            console.log("Fail")
-        }).then(function () {
-
-            dropdownOnSignIn();
-
+        //Materialize specific javascripts//
+        $('.dropdown-trigger').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            hover: false, // Activate on click
+            belowOrigin: true, // Displays dropdown below the button
+            alignment: 'right', // Displays dropdown with edge aligned to the left of button
         });
+        //-----------------------------------------------------------------------------------//
     });
-
-
-    //-----------------------------------------------------------------------------------//
-
-    // Use to set persistence until user logs out- was not working initially, come back to this
-    // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-    //     .then(function () {
-    //         // Existing and future Auth states are now persisted in the current
-    //         // session only. Closing the window would clear any existing state even
-    //         // if a user forgets to sign out.
-    //         // ...
-    //         // New sign-in will be persisted with session persistence.
-    //         return firebase.auth().signInWithEmailAndPassword(email, password);
-    //     })
-    //     .catch(function (error) {
-    //         // Handle Errors here.
-    //         var errorCode = error.code;
-    //         var errorMessage = error.message;
-    //     });
-
-
-    $(document).on("click", ".signOut", function () {
-        firebase.auth().signOut()
-            .then(function () {
-                console.log("signed out")
-                userLoggedIn = false;
-            })
-            .catch(function (error) {
-                console.log(error);
-            }).then(function () {
-                dropdownOnSignOut();
-            });
-    });
-    //-----------------------------------------------------------------------------------//
-
-    function dropdownOnSignIn() {
-        $("#profileIcon").empty();
-        $(".signIn").remove();
-
-        var $photo = $("<img>").attr("src", photoUrl).attr("id", "profilePicture");
-        $("#profileIcon").append($photo);
-
-        var $liProfile = $("<li>").addClass("profileLink");
-        var $profile = $("<a>").attr("href", "#!").html("Profile");
-        var $profile = $liProfile.append($profile);
-        $("#dropdown1").append($profile);
-        $("#dropdownMobile").append($profile.clone());
-
-        var $liFavorites = $("<li>").addClass("favoritesLink");
-        var $favorites = $("<a>").attr("href", "#!").html("Favorites");
-        var $favorites = $liFavorites.append($favorites)
-        $("#dropdown1").append($favorites);
-        $("#dropdownMobile").append($favorites.clone());
-
-        var $liSignout = $("<li>").addClass("signOut")
-        var $signOut = $("<a>").attr("href", "#!").html("Sign Out")
-        var $signOut = $liSignout.append($signOut)
-        $("#dropdown1").append($signOut);
-        $("#dropdownMobile").append($signOut.clone());
-    };
-
-    function dropdownOnSignOut() {
-        $(".profileLink").remove();
-        $(".favoritesLink").remove();
-        $(".signOut").remove();
-
-        var $profileImage = $("<i>").addClass("large material-icons").attr("id", "profileIcon").css("font-size", "60px").html("account_circle");
-        $("#profileIcon").empty();
-        $("#profileIcon").append($profileImage);
-        console.log("user not logged in");
-
-        var $liSignIn = $("<li>").addClass("signIn");
-        var $signIn = $("<a>").attr("href", "#!").html("Sign In");
-        var $signIn = $liSignIn.append($signIn);
-        $("#dropdown1").append($signIn);
-        $("#dropdownMobile").append($signIn.clone());
-    }
-
-    //Materialize specific javascripts//
-    $('.dropdown-trigger').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        hover: false, // Activate on click
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'right', // Displays dropdown with edge aligned to the left of button
-    });
-    $('.sidenav').sidenav();
-    //-----------------------------------------------------------------------------------//
-});
