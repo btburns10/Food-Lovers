@@ -56,12 +56,12 @@ $(function () {
             </ul>
             <!--xxxxxxxxxxxxxxxxxx-->
             <!--Mobile Dropdown Menu-->
-            <ul class="dropdown-content navbarDropdowndown right hide-on-large-only" id="dropdownMobile">
+            <ul class="dropdown-content navbarDropdown right hide-on-large-only" id="dropdownMobile">
                 <li>
-                    <a href="#1">Search</a>
+                    <a href="resultsBurns.html">Search</a>
                 </li>
                 <li>
-                    <a href="#1">Contact Us</a>
+                    <a href="contact.html">Contact Us</a>
                 </li>
                 <li class="divider" id="mobileAccountLinks"></li>
             </ul>
@@ -173,6 +173,8 @@ $(function () {
             var $signOut = $liSignout.append($signOut)
             $("#dropdown1").append($signOut);
             $("#dropdownMobile").append($signOut.clone());
+
+            localStorage.setItem("userID", uid);
         };
 
         function dropdownOnSignOut() {
@@ -190,6 +192,8 @@ $(function () {
             var $signIn = $liSignIn.append($signIn);
             $("#dropdown1").append($signIn);
             $("#dropdownMobile").append($signIn.clone());
+
+            localStorage.removeItem("userID");
         }
 
         //Materialize specific javascripts//
