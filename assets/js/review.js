@@ -80,11 +80,23 @@ $(document).ready(function () {
     // check to see if any on list
     if (!Array.isArray(list)) {
       list = [];
-    
+      var header= {
+        restaurantId : restaurantId,
+        UserId : UserId,
+        restaurantName : restaurantName,
+        menuUrl : menuUrl,
+        webUrl: webUrl,
+        phone:phone,
+        cost: cost,
+        rating: rating,
+        address:address,
+        cuisine:cuisine,
+      }
+      localStorage.setItem("favoriteList", JSON.stringify(header));
     }
     console.log(list);
 
-    var val=[restaurantId,UserId,restaurantName,menuUrl,webUrl,phone,cost,rating,address,cuisine]
+    var val={restaurantId,UserId,restaurantName,menuUrl,webUrl,phone,cost,rating,address,cuisine};
     list.push(val);
 
     console.log (list +"list filled with values");
