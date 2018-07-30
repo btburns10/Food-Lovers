@@ -1,12 +1,56 @@
 #mainContent{  
-    height: 800px;
+    height: 650px;
+    width: 100%;
     background: url(../images/eatintgBackground.png);
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center;
 }
+#infoBackground{
+    background: rgb(0, 0, 0,0.3);
+    position: relative;
+    width: 100%;
+    height: 100%;
 
-h1{
+}
+#mainInfoText1{
+    color: #fff;
+    text-align: left;
+    font-size: 84px;
+    font-weight: 800;
+    margin-left: 7%
+}
+#mainInfoText2{
+
+    color: #fff;
+    text-align: center;
+    font-size: 84px;
+    font-weight: 800;
+    position: absolute;
+    bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+#mainInfoButtons{
+    max-width: 1000px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+#mainInfoSearch,
+#mainInfoNext,
+#mainInfoRecent{
+    width: 198px;
+}
+h2{
     text-align: center;
     margin-top: 40px;
     font-size: 45px;
@@ -60,7 +104,36 @@ h5{
     font-size: 12px;
     margin: 10px 20px;
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 430px){
+    #mainInfoSearch,
+    #mainInfoNext,
+    #mainInfoRecent{
+        max-width: 100px;
+        font-size: 12px;
+}
+
+}
+@media screen and (max-width: 780px){
+    #mainInfoText1{
+        color: #fff;
+        text-align: left;
+        font-size: 54px;
+        font-weight: 800;
+        margin-left: 0;
+    }
+    #mainInfoText2{
+        color: #fff;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 800;
+        bottom: 15%;
+    }
+    #mainInfoSearch,
+    #mainInfoNext,
+    #mainInfoRecent{
+        width: 150px;
+        font-size: 14px;
+}
     #mainContent{
         height: 500px;
     }
@@ -79,7 +152,12 @@ h5{
         margin: 30px;
     }
     #weeklyContent{
-        min-height: 600px;
+        margin-top: 75px;
+        min-height: 800px;
+    }
+
+    #mainContent{
+        height: 825px;
     }
 }
 @media screen and (min-width: 1800px) {
