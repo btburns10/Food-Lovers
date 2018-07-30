@@ -69,7 +69,8 @@ $(document).ready(function () {
     } else {
       fav = false;
       $("#favorite").html('<i id="favorite" class="small material-icons">favorite_border</i>');
-      //  delRowFirebase(); 
+      console.log("before")
+      delRowFavorites(); 
 
     }
   });
@@ -80,39 +81,41 @@ $(document).ready(function () {
     // check to see if any on list
     if (!Array.isArray(list)) {
       list = [];
-      var header= {
-        restaurantId : restaurantId,
-        UserId : UserId,
-        restaurantName : restaurantName,
-        menuUrl : menuUrl,
-        webUrl: webUrl,
-        phone:phone,
-        cost: cost,
-        rating: rating,
-        address:address,
-        cuisine:cuisine,
-      }
-      localStorage.setItem("favoriteList", JSON.stringify(header));
+      // var header= {
+      //   restaurantId : restaurantId,
+      //   UserId : UserId,
+      //   restaurantName : restaurantName,
+      //   menuUrl : menuUrl,
+      //   webUrl: webUrl,
+      //   phone:phone,
+      //   cost: cost,
+      //   rating: rating,
+      //   address:address,
+      //   cuisine:cuisine,
+      // }
+      localStorage.setItem("favoriteList", JSON.stringify({restaurantId,UserId,restaurantName,menuUrl,webUrl,phone,cost,rating,address,cuisine}));
+    } 
+
+     var val={restaurantId,UserId,restaurantName,menuUrl,webUrl,phone,cost,rating,address,cuisine};
+      list.push(val);
+
+     localStorage.setItem("favoriteList",JSON.stringify(list));  
     }
-    console.log(list);
 
-    var val={restaurantId,UserId,restaurantName,menuUrl,webUrl,phone,cost,rating,address,cuisine};
-    list.push(val);
+  function delRowFavorites() { 
+        var delKey = restaurantId;
+        var favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
+  
+        favoriteList.splice(delKey,1);
 
-    console.log (list +"list filled with values");
-    localStorage.setItem("favoriteList",JSON.stringify(list));
 
-    
- 
+      localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
+     
+
+
+
+
   }
-
-
-
-
-
-
-
-
 
 
   // Get the data from Local storage that was set on previous page  
