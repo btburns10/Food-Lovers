@@ -31,7 +31,7 @@ $(document).ready(function () {
 // const restaurantReviewDB = 
 //var header = "";
 var displayImg = "";
-var restaurantId ="17052855";
+var restaurantId ="";
 var fav = false;
 
 

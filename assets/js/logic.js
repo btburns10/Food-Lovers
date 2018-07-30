@@ -14,21 +14,10 @@ var config = {
   const searchHistory = firebase.database().ref("Search History")
 
 //----------------------------------------------------------------------------
-const filter = "";
-const order = "";
+var sort = "";
+var order = "";
 const filterArray = ["cost", "rating"];
 const orderArray = ["asc", "desc"];
-// const favoritesList = [];
-// const restaurant = {
-//     id = restaurantId,
-//     name = name,
-//     rating = rating,
-//     cuisine = cuisine,
-//     cost = cost,
-//     address = address,
-//     website = website,
-//     menu = menu
-// }
 
 
 //drop down search filter function
@@ -43,15 +32,11 @@ $(".btn").on("click", function(event) {
     getLocationId($("#cityInput").val().trim());
     $("#cityInput").val("");
 
-    // if(($("#selectOne").val()) !== "") {
-    //     const val = $("#selectOne").val() - 1;
-    //     filter
-    // // }
-    
-    // console.log(filterArray[filter]);
+    const sortVal = $("#selectOne").val() - 1;
+    const orderVal = $("#selectTwo").val() - 1;
 
-    // order = $("#selectTwo").val() - 1;
-    // console.log(orderArray[order]);
+    sort = filterArray[sortVal];
+    order = orderArray[orderVal];
 });
     
 //ajax call function to pull city id
@@ -80,16 +65,18 @@ $.ajax({
     //call getRestaurants function with two parameters from location APIs
     getRestaurants(
         response.location_suggestions[0].entity_id,
-        response.location_suggestions[0].entity_type
+        response.location_suggestions[0].entity_type,
+        sort,
+        order
     )
 });
 
 }
 
 //ajax call to pull local restaurant info
-function getRestaurants(entityID, entityType) {
+function getRestaurants(entityID, entityType, sort, order) {
 
-    const queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + entityID + "&entity_type=" + entityType + "&count=20";
+    const queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + entityID + "&entity_type=" + entityType + "&count=20&sort=" + sort + "&order=" + order;
 
     $.ajax({
         url: queryURL,
@@ -170,18 +157,6 @@ $(document).on("dblclick", ".card", function() {
     var test = JSON.parse(localStorage.getItem("restaurantData"));
     console.log(test);
 
-})
-
-$(document).on("click", ".fa-heart", function() {
-    
-    if($(this).hasClass("far")) {
-        $(this).removeClass("far").addClass("fas");
-        localStorage.push("restaurantData", JSON.stringify({restaurantId, name, rating, cuisine, cost, address, website, menu}));
-    }      
-    else {
-        $(this).removeClass("fas").addClass("far");
-        localStorage.clear();
-    }
 })
   
 
