@@ -105,9 +105,15 @@ $(document).ready(function () {
   function delRowFavorites() { 
         var delKey = restaurantId;
         var favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
-  
-        favoriteList.splice(delKey,1);
 
+        for (var a =0; a < 5 ; a++) {
+          if (restaurantId === favoriteList.restaurantId) {
+            var delIndex = a;
+
+          }
+        }
+        favoriteList.splice(delIndex,1);
+        console.log(favoriteList  + " after splice");
 
       localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
      
