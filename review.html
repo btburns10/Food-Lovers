@@ -25,7 +25,7 @@
   <div id="mainContent" class="container">
     <div class="row">
       <div class="col s12 m7">
-        <div class="card z-depth-3">
+        <div id="imgcard" class="card z-depth-3">
           <div class="card-image">
             <img id="display-img" img src="assets/images/test_restaurant.jpeg">
             <span id="rest-name" class="card-title">Callaway's Seafood</span>
@@ -52,36 +52,36 @@
         </li>
         <li class="collection-item" id="addLabel">Address:
           <p id="address1">7 Rhygate Court</p>
-          <p id="address2">Durham, NC 27713</p>
-          <!-- <a><i class="small material-icons">919-555-1212</i> </a> -->
+          <p id="address2"></p>
           <a>
-            <i class="small material-icons">call</i>919.555.1212</a>
+            <i id="phone" class="small material-icons">call</i>919.555.1212</a>
 
         </li>
         <li id="cuisinelbl" class="collection-item">Cuisine:
          <scan id="cuisine">Seafood</scan>
         </li>
         <li id="ratinglbl" class="collection-item">Rating:
-          <scan id="rating">3.5</scan>
+          <scan id="rating"></scan>
+        </li>
+        <li id="costlbl"class="collection-item">Cost for two: $
+          <scan id="cost"></scan>
         </li>
         <li class="collection-item"></li>
-        <li class="collection-item">Alvin</li>
       </ul>
 
     </div>
     <div class="col s12 m7 z-depth-3">
-
-      <h4 class="header">What are people saying?</h4>
+      
+      <p class="header">What are people saying?</p>
+        
       <div class="card">
-        <!-- <div class="row">
-             <div class="card-stacked col s4"> -->
-        <!-- <div class="col s4"> -->
-        <div class="card-content">
+        <div id="review-card" class="card-content">
           <div class="row">
-
-            <p id="review-name"> Reviewer Name
-              <i class="small material-icons">sentiment_satisfied</i>
-              <p id="review">This is a review - the food was awesome! You should go there as soon as possible!</p>
+            <h5 id="review-name"></h5>
+            <scan id="rating-text"></scan>
+            <p id="review-time"></p>
+            
+              <h6 id="review"></h6>
 
 
               <div class="carousel carousel-slider">
