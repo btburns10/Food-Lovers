@@ -1,4 +1,7 @@
-h2 {background-color: #ee6e73
+h2 {background-color: #ee6e73;
+    margin-color: #ee6e73;
+    margin-right: 50px;
+    margin-left: 50px;
 };
 
 .waves-effect waves-light btn {color: #ee6e73;
