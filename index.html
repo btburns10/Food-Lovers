@@ -33,22 +33,22 @@
                 <br> Drinks.
                 <br> Happiness.
             </div>
-                <div id="mainInfoText2">
-                    Find Yours Today!
-                </div>
+            <div id="mainInfoText2">
+                Find Yours Today!
+            </div>
 
-                <div id="mainInfoButtons">
-                    <a class="waves-effect waves-light btn-large" id="mainInfoSearch">
-                        <i class="material-icons left hide-on-small-only">search</i>search</a>
-                    <a class="waves-effect waves-light btn-large" id="mainInfoNext">
-                        <i class="material-icons left hide-on-small-only">arrow_downward</i>Next</a>
-                    <a class="waves-effect waves-light btn-large" id="mainInfoRecent">
-                        <i class="material-icons left hide-on-small-only">bookmark</i>Recent</a>
-                </div>
+            <div id="mainInfoButtons">
+                <a href="resultsBurns.html" class="waves-effect waves-light btn-large" id="mainInfoSearch">
+                    <i class="material-icons left hide-on-small-only">search</i>search</a>
+                <a data-target="nextSection1" class="waves-effect waves-light btn-large nextButton">
+                    <i class="material-icons left hide-on-small-only">arrow_downward</i>Next</a>
+                <a href="review.html" class="waves-effect waves-light btn-large" id="mainInfoRecent">
+                    <i class="material-icons left hide-on-small-only">bookmark</i>Recent</a>
             </div>
         </div>
     </div>
-    <h2> Weekly Spoontaculars </h2>
+    </div>
+    <h2 id="nextSection1"> Weekly Spoontaculars </h2>
     <div id="weeklyContent">
         <div class="weeklyItem">
             <div class="card z-depth-3">
@@ -98,8 +98,16 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <a data-target="entireNavBar" class="waves-effect waves-light btn-large nextButton">
+            <i class="material-icons left hide-on-small-only">arrow_upward</i>Previous</a>
+        <a data-target="carousel" class="waves-effect waves-light btn-large nextButton hide-on-small-only">
+            <i class="material-icons left hide-on-small-only">arrow_downward</i>Next
+        </a>
+
+    </div>
     <div class="hide-on-med-and-down">
-        <div class="carousel carousel-slider center z-depth-4">
+        <div class="carousel carousel-slider center z-depth-4" id="carousel">
             <div class="carousel-item black white-text" href="#one!">
                 <div class="left text-black" id="carouselItemPic">
                     <img src="assets/images/bittersweet.jpg">
@@ -161,6 +169,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="flexbox row space-around hide-on-small-only" style="margin-top: 25px">
+        <a data-target="nextSection1" class="waves-effect waves-light btn-large nextButton">
+            <i class="material-icons left hide-on-small-only">arrow_upward</i>Previous</a>
     </div>
 
 

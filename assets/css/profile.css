@@ -1,0 +1,49 @@
+#mainContent{
+    min-height: 80vh;
+}
+
+#profileImage{
+    height: auto;
+    width: 100%;
+}
+
+h2{
+    text-align: left;
+    border-bottom: 1px teal solid;
+    font-size: 36px;
+}
+
+h3{ 
+    text-align: left;
+    border-bottom: 1px teal solid;
+}
+
+h6{
+    margin-top: 10px;
+}
+
+#manageButtons{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    min-height: 80px;
+}
+
+#profileBio{
+    margin-top: 25px;
+}
+
+.editsOfProfile,
+.profileTextEdits{
+    display: none;
+}
+
+#modal1{
+    z-index: 999999;
+    display: none;
+    min-height: 100px;
+    max-height: 30vh;
+    min-width: 280px;
+    max-width: 60vw;
+    border: 5px salmon solid;
+}
