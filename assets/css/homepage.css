@@ -1,5 +1,5 @@
 #mainContent{  
-    height: 650px;
+    max-height: 82vh;
     width: 100%;
     background: url(../images/eatintgBackground.png);
     background-repeat:no-repeat;
@@ -64,6 +64,7 @@ h5{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
+    margin-top: 0;
 }
 .weeklyItem{
     margin: 10px;
@@ -155,7 +156,6 @@ h5{
         margin: 30px;
     }
     #weeklyContent{
-        margin-top: 75px;
         min-height: 600px;
     }
 
