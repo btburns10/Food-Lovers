@@ -3,37 +3,57 @@ $(document).ready(function() {
   createRowFavorites();
 
 function createRowFavorites() {
-  var list = JSON.parse(localStorage.getItem("favoriteList"));
-   
+  var list = JSON.parse(localStorage.favoriteList);
+  console.log('LOOK HERE ', JSON.parse(localStorage.favoriteList))
 
-  for (var i = 0; 0 <= list.length-1; i++) {
-    
+  for (var i = 0; i < list.length; i++) {
 
-    console.log("imInTheLoop");
-    console.log (list +" inside the loop")
-
-    // console.log(list[i].restaurantName, list[i].cuisine, list[i].rating, list[i].address);
-
-    // var name = list[i].restaurantName;
+    var name = list[i].restaurantName;
     var cuisine = list[i].cuisine;
     var rating = list[i].rating;
     var address = list[i].address;
+    var restaurantId = list[i].restaurantId;
+
+    console.log('NAME ', name)
+    console.log('CUISINE ', cuisine)
+    console.log('RATING ', rating)
+    console.log('ADDRESS ', address)
+    console.log('RESTAURANT ID ', restaurantId)
+
 
 var newRow = $("<tr>")
   var td0 = $("<td>").text(name);
   var td1 = $("<td>").text(cuisine);
   var td2 = $("<td>").text(rating);
   var td3 = $("<td>").text(address);
-  var td4 = $("<td>").attr('<a class="waves-effect waves-light btn">');
+  var td4 = $("<td>").html('<i class="material-icons left">delete_forever</i>').attr("data-key", restaurantId);
 
-  newRow.prepend(td0).prepend(td1).prepend(td2).prepend(td3).prepend(td4);
-  $("<tbody>").prepend(newRow);
+  newRow.prepend(td4).prepend(td3).prepend(td2).prepend(td1).prepend(td0); //.;
+  $("#tbody").prepend(newRow);
 
   console.log(newRow);
 
-  };
+  console.log($("<tbody>"))
+ };
 
 };
+
+$(document).on("click", ".material-icons", function() {
+  event.preventDefault();
+  restaurantId = $(this).attr("data-key");
+  $(this).closest("tr").remove();
+  console.log(restaurantId + " delete restaurant id");
+  var favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
+    console.log(favoriteList.length);
+       for (var a =0; a < favoriteList.length-1 ; a++) {
+         if (restaurantId === favoriteList[a].restaurantId) {
+           var delIndex = a;
+           favoriteList.splice(delIndex,1);
+           localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
+         }
+       }
+
+});
 
 });
 //   function deleteRowFavorites() {
