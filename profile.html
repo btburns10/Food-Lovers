@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Materialize/Navbar+Footer CDNs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--xxxxxxxxxxxxxxxxxx-->
+
+    <!--Navbar and Footer CSS-->
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <!--xxxxxxxxxxxxxxxxxx-->
+
+    <link rel='stylesheet' href='assets/css/profile.css'>
+
+
+</head>
+
+<body>
+
+    <div id="entireNavBar"></div>
+
+    <div class="container" id="mainContent">
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4>Complete the Information</h4>
+                <p>You must enter a name, city, and email to continue.</p>
+            </div>
+            <div class="modal-footer">
+                    <a href="profile.html" class="waves-effect waves-green btn-flat">Cancel Update</a>
+                <a href="#!" class="waves-effect waves-green btn-flat" id="modal-close">Okay</a>
+            </div>
+        </div>
+        <h2> Profile Information </h2>
+        <div class="row">
+            <div class="col s12 m3">
+                <img src="#" id="profileImage">
+            </div>
+            <form>
+                <div class="col s12 m6" id="userInfo">
+                    <div class="row">
+                        <h6 class="col s2"> Name:
+                            <span class="col s10" id="namePrint"></span>
+                        </h6>
+                    </div>
+                    <input type="text" placeholder="First Name" class="profileTextEdits" id="first_name">
+
+                    <div class="row">
+                        <h6 class="col s2"> City:
+                            <span class="col s10" id="cityPrint"></span>
+                        </h6>
+                    </div>
+                    <input type="text" placeholder="City" class="profileTextEdits" id="city">
+
+                    <div class="row">
+                        <h6 class="col s2"> Email:
+                            <span class="col s10" id="emailPrint"></span>
+                        </h6>
+                    </div>
+                    <input type="text" placeholder="Email Address" class="profileTextEdits" id="email">
+            </form>
+            <div class="row">
+                <h6 class="col s2"> Number of Reviews:
+                    <span id="numberReviewsPrint"></span>
+                </h6>
+                <h6 id="numberOfReviews"></h6>
+            </div>
+            </div>
+
+            <div class="col s12 m3">
+                <div id="manageButtons">
+                    <div class="btn">My Favorites</div>
+                    <div class="btn" id="editProfileBtn">Edit Profile</div>
+                    <div href="#modal1" class="btn editsOfProfile" id="updateProfile">Update Profile</div>
+                    <form action="#" class="editsOfProfile">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Photo</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <h3> Recent Reviews </h3>
+
+    </div>
+
+
+    <div id="entireFooter"></div>
+
+    <!--Scripts required for navbar/footer-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src='assets/js/navbar.js'></script>
+    <script src="assets/js/footer.js"></script>
+    <!--xxxxxxxxxxxxxxxxxx-->
+    <script src="assets/js/profile.js"></script>
+
+
+
+</body>
+
+</html>
