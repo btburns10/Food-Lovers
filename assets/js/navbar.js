@@ -157,6 +157,65 @@ $(function () {
 
     //-------------------------------------------------------------//
 
+<<<<<<< HEAD
+        $(document).on("click", ".signOut", function () {
+            firebase.auth().signOut()
+                .then(function () {
+                    console.log("signed out")
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        });
+        //-----------------------------------------------------------------------------------//
+
+        function dropdownOnSignIn() {
+            $("#profileIcon").empty();
+            $(".signIn").remove();
+
+            var $photo = $("<img>").attr("src", photoUrl).attr("id", "profilePicture");
+            $("#profileIcon").append($photo);
+
+            var $liProfile = $("<li>").addClass("profileLink");
+            var $profile = $("<a>").attr("href", "#!").html("Profile");
+            var $profile = $liProfile.append($profile);
+            $("#dropdown1").append($profile);
+            $("#dropdownMobile").append($profile.clone());
+
+            var $liFavorites = $("<li>").addClass("favoritesLink");
+            var $favorites = $("<a>").attr("href", "favorites.html").html("Favorites");
+            var $favorites = $liFavorites.append($favorites)
+            $("#dropdown1").append($favorites);
+            $("#dropdownMobile").append($favorites.clone());
+
+            var $liSignout = $("<li>").addClass("signOut")
+            var $signOut = $("<a>").attr("href", "#!").html("Sign Out")
+            var $signOut = $liSignout.append($signOut)
+            $("#dropdown1").append($signOut);
+            $("#dropdownMobile").append($signOut.clone());
+
+            localStorage.setItem("userID", uid);
+        };
+
+        function dropdownOnSignOut() {
+            $(".profileLink").remove();
+            $(".favoritesLink").remove();
+            $(".signOut").remove();
+
+            var $profileImage = $("<i>").addClass("large material-icons").attr("id", "profileIcon").css("font-size", "60px").html("account_circle");
+            $("#profileIcon").empty();
+            $("#profileIcon").append($profileImage);
+            console.log("user not logged in");
+
+            var $liSignIn = $("<li>").addClass("signIn");
+            var $signIn = $("<a>").attr("href", "#!").html("Sign In");
+            var $signIn = $liSignIn.append($signIn);
+            $("#dropdown1").append($signIn);
+            $("#dropdownMobile").append($signIn.clone());
+
+            localStorage.removeItem("userID");
+        }
+=======
     $(document).on("click", ".signOut", function () {
         firebase.auth().signOut()
             .then(function () {
@@ -195,6 +254,7 @@ $(function () {
 
         localStorage.setItem("userID", uid);
     };
+>>>>>>> c9072760445f70845355936b0600111c3eac50b5
 
     function dropdownOnSignOut() {
         $(".profileLink").remove();
