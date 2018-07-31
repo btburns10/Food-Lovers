@@ -14,21 +14,10 @@ var config = {
   const searchHistory = firebase.database().ref("Search History")
 
 //----------------------------------------------------------------------------
-const filter = "";
-const order = "";
+var sort = "";
+var order = "";
 const filterArray = ["cost", "rating"];
 const orderArray = ["asc", "desc"];
-// const favoritesList = [];
-// const restaurant = {
-//     id = restaurantId,
-//     name = name,
-//     rating = rating,
-//     cuisine = cuisine,
-//     cost = cost,
-//     address = address,
-//     website = website,
-//     menu = menu
-// }
 
 
 //drop down search filter function
@@ -36,25 +25,21 @@ $(document).ready(function(){
     $('select').formSelect();
   });
 
-//event handler to create variables from form when button with class ".btn" is clicked
+//event handler to create variables from form input when button with class ".btn" is clicked
 $(".btn").on("click", function(event) {
     event.preventDefault();
 
     getLocationId($("#cityInput").val().trim());
     $("#cityInput").val("");
 
-    // if(($("#selectOne").val()) !== "") {
-    //     const val = $("#selectOne").val() - 1;
-    //     filter
-    // // }
-    
-    // console.log(filterArray[filter]);
+    const sortVal = $("#selectOne").val() - 1;
+    const orderVal = $("#selectTwo").val() - 1;
 
-    // order = $("#selectTwo").val() - 1;
-    // console.log(orderArray[order]);
+    sort = filterArray[sortVal];
+    order = orderArray[orderVal];
 });
     
-//ajax call function to pull city id
+//ajax call function to pull city id, city type, sort, order to pass through getRestaurants() search query
 function getLocationId(city) {
 
     searchHistory.push(city);
@@ -69,8 +54,6 @@ $.ajax({
     beforeSend: function(xhr){xhr.setRequestHeader('user-key', 
     'b81c89ea8a3dba9037dd6ffe97c3a20b');},
 }).then(function(response) {
-    
-    console.log(response);
 
     if(response.location_suggestions[0].entity_type === "city") {
         alert("Please enter a valid city in the Raleigh area")
@@ -80,16 +63,18 @@ $.ajax({
     //call getRestaurants function with two parameters from location APIs
     getRestaurants(
         response.location_suggestions[0].entity_id,
-        response.location_suggestions[0].entity_type
+        response.location_suggestions[0].entity_type,
+        sort,
+        order
     )
 });
 
 }
 
-//ajax call to pull local restaurant info
-function getRestaurants(entityID, entityType) {
+//ajax call to pull local search restaurant data
+function getRestaurants(entityID, entityType, sort, order) {
 
-    const queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + entityID + "&entity_type=" + entityType + "&count=20";
+    const queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + entityID + "&entity_type=" + entityType + "&count=20&sort=" + sort + "&order=" + order;
 
     $.ajax({
         url: queryURL,
@@ -101,11 +86,10 @@ function getRestaurants(entityID, entityType) {
     }).then(function(response) {
         $("#restaurant-list").empty();
         displayRestaurants(response);
-        console.log(response);
     });
 }
 
-//display to div with id #restaurant-list the results from getRestaurants()
+//display in card format the results to div with id #restaurant-list
 function displayRestaurants(response) {
     response.restaurants.forEach(function(data) {
 
@@ -153,7 +137,7 @@ function displayRestaurants(response) {
 }
 
 $(document).on("dblclick", ".card", function() {
-    //open up review page in separate tab
+    //open up review html page in separate tab
     window.open("https://btburns10.github.io/Food-Lovers/review.html", "_blank");
 
     //store restaurant data to local storage
@@ -167,21 +151,7 @@ $(document).on("dblclick", ".card", function() {
     var menu = $(this).attr("menu");
 
     localStorage.setItem("restaurantData", JSON.stringify({restaurantId, name, rating, cuisine, cost, address, website, menu}));
-    var test = JSON.parse(localStorage.getItem("restaurantData"));
-    console.log(test);
 
-})
-
-$(document).on("click", ".fa-heart", function() {
-    
-    if($(this).hasClass("far")) {
-        $(this).removeClass("far").addClass("fas");
-        localStorage.push("restaurantData", JSON.stringify({restaurantId, name, rating, cuisine, cost, address, website, menu}));
-    }      
-    else {
-        $(this).removeClass("fas").addClass("far");
-        localStorage.clear();
-    }
 })
   
 
