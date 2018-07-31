@@ -163,7 +163,7 @@ $(function () {
             $("#dropdownMobile").append($profile.clone());
 
             var $liFavorites = $("<li>").addClass("favoritesLink");
-            var $favorites = $("<a>").attr("href", "#!").html("Favorites");
+            var $favorites = $("<a>").attr("href", "favorites.html").html("Favorites");
             var $favorites = $liFavorites.append($favorites)
             $("#dropdown1").append($favorites);
             $("#dropdownMobile").append($favorites.clone());

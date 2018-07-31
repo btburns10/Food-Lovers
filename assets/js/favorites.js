@@ -40,18 +40,8 @@ var newRow = $("<tr>")
 
 $(document).on("click", ".material-icons", function() {
   event.preventDefault();
-  restaurantId = $(this).attr("data-key");
+
   $(this).closest("tr").remove();
-  console.log(restaurantId + " delete restaurant id");
-  var favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
-    console.log(favoriteList.length);
-       for (var a =0; a < favoriteList.length-1 ; a++) {
-         if (restaurantId === favoriteList[a].restaurantId) {
-           var delIndex = a;
-           favoriteList.splice(delIndex,1);
-           localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
-         }
-       }
 
 });
 
