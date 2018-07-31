@@ -42,7 +42,7 @@ $(document).on("click", ".material-icons", function() {
   event.preventDefault();
 
   $(this).closest("tr").remove();
-  
+
 
 });
 

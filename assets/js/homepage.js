@@ -12,4 +12,15 @@ $(function () {
         indicators: true
     });
 
+    $(".nextButton").on("click", function(){
+        var target = $(this).attr("data-target")
+
+        console.log(target)
+
+        var x = document.getElementById(target);
+
+        console.log(x)
+
+        x.scrollIntoView();
+    })
 })

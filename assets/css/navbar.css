@@ -30,7 +30,7 @@ main {
 #mainContent{
     position: relative;
     top: 90px;
-    margin-bottom: 90px; 
+    margin-bottom: 90px;
 }
 
 #navbarMargins{
@@ -42,6 +42,9 @@ main {
 #profilePicture{
     height: 80px;
     padding-top: 5px;
+}
+#profileIcon{
+    height: 90px;
 }
 #profilePicture{
     border-radius: 50%;
@@ -103,3 +106,22 @@ nav .brand-logo {
 
 }
 /* --------------------------------- */
+
+/* Custom FlexBox Classes */
+
+.flexbox{
+    display: flex;
+}
+.flexrow{
+    display: row;
+}
+.flexcol{
+    display: column;
+}
+.space-around{
+    justify-content: space-around;
+}
+
+.space-between{
+    justify-content: space-between;
+}
