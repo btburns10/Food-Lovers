@@ -48,7 +48,7 @@ $(function () {
                             <li class="row">
                                 <a href="#!" class="dropdown-trigger" data-beloworigin="true" data-target="dropdown1" id="profileIcon">
                                 <div class="preloader-wrapper active">
-                                <div class="spinner-layer spinner-blue-only">
+                                <div class="spinner-layer spinner-teal-only">
                                     <div class="circle-clipper left">
                                         <div class="circle">
                                         </div>
