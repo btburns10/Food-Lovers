@@ -43,7 +43,6 @@ $(document).ready(function () {
   var rating ="";
   var UserId ="test1234"
   var address="";
->>>>>>> 5925eb2b1fb08b8e7f92e7f81a89aa22597ab68e
 
   // rotate slider
   setInterval(function () {
