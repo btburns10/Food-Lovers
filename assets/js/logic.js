@@ -18,12 +18,26 @@ var sort = "";
 var order = "";
 const filterArray = ["cost", "rating"];
 const orderArray = ["asc", "desc"];
+const demoPhotoArray=["assets/images/photo1.jpg",
+  "assets/images/photo2.jpg",
+  "assets/images/photo3.jpg",
+  "assets/images/photo4.jpg",
+  "assets/images/photo5.jpg",
+  "assets/images/photo6.jpeg",
+  "assets/images/photo7.jpg",
+  "assets/images/photo8.jpg",
+  "assets/images/photo9.jpg"];
 
 
 //drop down search filter function
 $(document).ready(function(){
     $('select').formSelect();
   });
+
+function randomPhoto (){
+  var randNum =Math.floor(Math.random() * 10);
+  photo = demoPhotoArray[randNum];
+ }
 
 //event handler to create variables from form input when button with class ".btn" is clicked
 $(".btn").on("click", function(event) {
@@ -92,7 +106,7 @@ function getRestaurants(entityID, entityType, sort, order) {
 //display in card format the results to div with id #restaurant-list
 function displayRestaurants(response) {
     response.restaurants.forEach(function(data) {
-
+        randomPhoto();
         const restaurantId = data.restaurant.R.res_id;
         const name = data.restaurant.name;
         const rating = data.restaurant.user_rating.aggregate_rating;
@@ -119,7 +133,7 @@ function displayRestaurants(response) {
         divContainer.append(divCardHorizontal);
         divCardHorizontal.append(divCardImage, divCardStacked);
         divCardImage.append(image);
-        image.attr("src", "assets/images/placeholder.png");
+        image.attr("src", photo);
         divCardStacked.append(divCardContent, divCardAction);
         divCardContent.append(headerName, pRating, pCuisine, pCost, pAddress);
         divCardAction.append(link);
