@@ -43,6 +43,17 @@ $(document).ready(function () {
   var rating ="";
   var UserId ="test1234"
   var address="";
+  var photo = "";
+  var demoPhotoArray=["assets/images/photo1.jpg",
+  "assets/images/photo2.jpg",
+  "assets/images/photo3.jpg",
+  "assets/images/photo4.jpg",
+  "assets/images/photo5.jpg",
+  "assets/images/photo6.jpeg",
+  "assets/images/photo7.jpg",
+  "assets/images/photo8.jpg",
+  "assets/images/photo9.jpg"];
+  console.log(demoPhotoArray);
 
   // rotate slider
   setInterval(function () {
@@ -81,18 +92,7 @@ $(document).ready(function () {
     // check to see if any on list
     if (!Array.isArray(list)) {
       list = [];
-      // var header= {
-      //   restaurantId : restaurantId,
-      //   UserId : UserId,
-      //   restaurantName : restaurantName,
-      //   menuUrl : menuUrl,
-      //   webUrl: webUrl,
-      //   phone:phone,
-      //   cost: cost,
-      //   rating: rating,
-      //   address:address,
-      //   cuisine:cuisine,
-      // }
+    
       localStorage.setItem("favoriteList", JSON.stringify({restaurantId,UserId,restaurantName,menuUrl,webUrl,phone,cost,rating,address,cuisine}));
     } 
 
@@ -106,16 +106,17 @@ $(document).ready(function () {
         var delKey = restaurantId;
         var favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
 
-        for (var a =0; a < 5 ; a++) {
-          if (restaurantId === favoriteList.restaurantId) {
+        for (var a =0; a < favoriteList.length-1 ; a++) {
+          if (restaurantId === favoriteList[a].restaurantId) {
             var delIndex = a;
-
+            favoriteList.splice(delIndex,1);
+            localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
           }
         }
-        favoriteList.splice(delIndex,1);
+       
         console.log(favoriteList  + " after splice");
 
-      localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
+     
      
 
 
@@ -141,8 +142,11 @@ $(document).ready(function () {
     cuisine=obj.cuisine;
     rating=(obj.rating+ "/5");
     
+    randomPhoto();
+
+    console.log(photo);
     //     userId=(obj.userId)
-    //      $("#display-img").src(obj.       );
+    $("#display-img").attr("src", photo);
     $("#rest-name").text(restaurantName);
     $("#rest-head").text(restaurantName);
     $("#web").attr("href",  webUrl);
@@ -154,6 +158,16 @@ $(document).ready(function () {
     $("#rating").text(rating);
     console.log(restaurantId,UserId,restaurantName,menuUrl,webUrl,phone,cost,rating,address,cuisine);
   }
+
+  //get random photo for display
+  function randomPhoto (){
+    var randNum =Math.floor(Math.random() * 10);
+    console.log(randNum);
+    photo = demoPhotoArray[randNum];
+
+    console.log(photo);
+
+   }
 
   function reviewCall() {
 
@@ -179,7 +193,7 @@ $(document).ready(function () {
       } else {
         console.log(restaurantReview.user_reviews[0].review.user.name);
         console.log(restaurantReview.user_reviews[0].review.rating_text);
-        console.log(restaurantReview.user_reviews[0].review.review_time);
+      //  console.log(restaurantReview.user_reviews[0].review.review_time);
         console.log(restaurantReview.user_reviews[0].review.review_text);
         $("#review-name").text(restaurantReview.user_reviews[0].review.user.name);
         //    $("#rating-text").text(restaurantReview.user_reviews[0].review.rating_text);
