@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Favorites</title>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified JavaScript -->
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/favorites.css">
+
+</head>
+
+<body>
+    <div id="entireNavBar"></div>
+
+    <br></br>
+
+    <div class="card large">
+        <div class="col s12 m6">
+            <div class= "card white darken-1">
+                <div class ="card-content black-text">
+                    <span class="card-title"><h2>Your Favorites</h2></span>
+                        <div>
+                            <table class="highlight">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Cuisine</th>
+                                        <th>Rating</th>
+                                        <th>Address</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                        
+                                    <tbody>
+                                    <tr class="restaurantList">
+                                        <td class="restaurantName">placeholder1</td>
+                                        <td class="restaurantCuisine">placeholder2</td>
+                                        <td class="restaurantRating">placeholder3</td>
+                                        <td class="restaurantAddress">placeholder4</td>
+                                        <td><a class="waves-effect waves-light btn"><i class="material-icons left">delete_forever</i>REMOVE</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="entireFooter"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/favorites.js"></script>
+
+</body>
+
