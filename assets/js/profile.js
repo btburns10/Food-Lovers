@@ -24,9 +24,9 @@ $(function () {
         console.log(snapshot.val().name);
         console.log(snapshot.val().email);
 
-        $("#namePrint").val(snapshot.val().name)
-        $("#cityPrint").val(snapshot.val().uid)
-        $("#emailPrint").val(snapshot.val().email)
+        $("#namePrint").html(snapshot.val().name)
+        $("#cityPrint").html(snapshot.val().city)
+        $("#emailPrint").html(snapshot.val().email)
         $("#profileImage").attr("src", snapshot.val().photo);
 
         // Handle the errors
