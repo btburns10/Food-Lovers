@@ -8,19 +8,18 @@
 $(function () {
     // Initialize Firebase
     var config = {
-        //Alex's personal firebase
-        // apiKey: "AIzaSyCpSivuBs4N0RQMZSGpZPtgGPTjPgsfvHU",
-        // authDomain: "food-lovers-9bdc3.firebaseapp.com",
-        // databaseURL: "https://food-lovers-9bdc3.firebaseio.com",
-        // projectId: "food-lovers-9bdc3",
-        // storageBucket: "food-lovers-9bdc3.appspot.com",
-        // messagingSenderId: "592101420756"
-        apiKey: "AIzaSyBmkUTzXWeKHgrMrODh7Ra1b4feAfwrtiU",
-        authDomain: "food-lovers-14947.firebaseapp.com",
-        databaseURL: "https://food-lovers-14947.firebaseio.com",
-        projectId: "food-lovers-14947",
-        storageBucket: "food-lovers-14947.appspot.com",
-        messagingSenderId: "134886336746"
+        apiKey: "AIzaSyCpSivuBs4N0RQMZSGpZPtgGPTjPgsfvHU",
+        authDomain: "food-lovers-9bdc3.firebaseapp.com",
+        databaseURL: "https://food-lovers-9bdc3.firebaseio.com",
+        projectId: "food-lovers-9bdc3",
+        storageBucket: "food-lovers-9bdc3.appspot.com",
+        messagingSenderId: "592101420756"
+        // apiKey: "AIzaSyBmkUTzXWeKHgrMrODh7Ra1b4feAfwrtiU",
+        // authDomain: "food-lovers-14947.firebaseapp.com",
+        // databaseURL: "https://food-lovers-14947.firebaseio.com",
+        // projectId: "food-lovers-14947",
+        // storageBucket: "food-lovers-14947.appspot.com",
+        // messagingSenderId: "134886336746"
     };
     firebase.initializeApp(config);
 
