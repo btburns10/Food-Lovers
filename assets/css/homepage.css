@@ -1,6 +1,5 @@
 #mainContent{  
-    min-height: 60vh;
-    max-height: 82vh;
+    max-height: 85vh;
     width: 100%;
     background: url(../images/eatintgBackground.png);
     background-repeat:no-repeat;
@@ -11,8 +10,8 @@
     background: rgb(0, 0, 0,0.3);
     position: relative;
     width: 100%;
+    min-height: 500px;
     height: 100%;
-
 }
 #mainInfoText1{
     color: #fff;
