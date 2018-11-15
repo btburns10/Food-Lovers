@@ -40,7 +40,7 @@ $(function () {
                                 <a href="index.html">Home</a>
                             </li>
                             <li>
-                                <a href="resultsBurns.html">Search</a>
+                                <a href="resultstest.html">Search</a>
                             </li>
                             <li>
                                 <a href="contact.html">Contact Us</a>
@@ -77,7 +77,7 @@ $(function () {
             <!--Mobile Dropdown Menu-->
             <ul class="dropdown-content navbarDropdown right hide-on-large-only" id="dropdownMobile">
                 <li>
-                    <a href="resultsBurns.html">Search</a>
+                    <a href="resultstest.html">Search</a>
                 </li>
                 <li>
                     <a href="contact.html">Contact Us</a>

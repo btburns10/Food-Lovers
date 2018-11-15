@@ -161,7 +161,7 @@ $(document).ready(function () {
 
   //get random photo for display
   function randomPhoto (){
-    var randNum =Math.floor(Math.random() * 10);
+    var randNum =Math.floor(Math.random() * 9);
     console.log(randNum);
     photo = demoPhotoArray[randNum];
 
