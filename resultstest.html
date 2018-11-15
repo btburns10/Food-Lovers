@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Food Lovers</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/resultstest.css">
+  </head>
+
+  <body>
+    <div id="entireNavBar"></div>
+    
+    <div id="mainContent" class="main-content container">
+     
+      <div class="input-field col s12">
+        <!-- <h4>Start by entering a city in the Triangle Area</h4> -->
+        <form>
+            <input id="cityInput" type="text" placeholder="enter city">  
+            <button id="searchBtn" class="btn waves-effect waves-light fas fa-search" type="submit" name="action" text="">
+              <!-- <i class="fas fa-search"></i> -->
+            </button>
+        </form>
+
+      </div>
+
+      <div class="card-container container">
+        
+        <div class="row">
+          <div class="col-lg-12 card-unit filter-question">
+            <h4 id="modal1">Which is more important to you?</h4>
+          </div>
+        </div>
+
+        <div class="row container flex-cards">
+
+          <div class="col-lg-6 card-unit grow-filter">
+            <div class="card card-filter">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img value="1" id="filter" sort="cost" class="activator" src="assets/images/dollarsign.png">
+              </div>
+            </div>
+            <span>Cost</span>
+          </div>
+          
+          <div class="col-lg-6 card-unit grow-filter">
+            <div class="card card-filter">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img value="2" id="filter" sort="rating" class="ratingImg" class="activator" src="assets/images/starrating.png">
+              </div>
+            </div>
+            <span>Rating</span>
+          </div>
+          
+
+        </div>
+
+      </div>
+
+      <div id="restaurant-list"></div>
+
+    </div>
+
+    <div id="entireFooter"></div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src='assets/js/navbar.js'></script>
+    <script src='assets/js/footer.js'></script>
+    <script src="assets/js/logictest.js"></script>
+  </body>
+</html>

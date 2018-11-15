@@ -35,7 +35,7 @@ $(document).ready(function(){
   });
 
 function randomPhoto (){
-  var randNum =Math.floor(Math.random() * 10);
+  var randNum =Math.floor(Math.random() * 9);
   photo = demoPhotoArray[randNum];
  }
 

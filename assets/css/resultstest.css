@@ -1,0 +1,137 @@
+html{
+    height: 100vh;
+    position: relative;
+}
+body{
+    height: 100%;
+    min-height: 80vh;
+}
+
+header{
+    z-index: 2;
+    width: 100%;
+    position: absolute;
+}
+
+#searchBar{
+    width: 100%;
+    position: fixed;
+    bottom: 10%;
+}
+
+#headerLogo{
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 60px;
+}
+
+#informationBlock1{
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    background: rgb(0, 0, 0, 0.7);
+    max-width: 575px;
+}
+
+
+.main-content {
+    flex-wrap: wrap;
+    min-height: 80vh;
+    background: url(../images/search-backdrop.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.input-field {
+    position: relative;
+    margin: 60px;
+    color: white;
+}
+
+#cityInput {
+    border: 1px solid grey;
+    padding-left: 1%;
+    width: 40%;
+    position: relative;
+    left: 225px;
+    color: white;
+}
+
+form {
+    position: relative;
+    top: 26px;
+}
+
+#searchBtn {
+    width: 47px;
+    height: 47px;
+    position: absolute;
+    border-radius: 0;
+    right: 260px;
+    background: lightgray;
+}
+
+.loadingStyle {
+    margin-left: 350px;
+}
+
+.flex-cards {
+    display: flex;
+    color: white;
+}
+
+.card-filter {
+    border-radius: 16px;
+    width: 25vh;
+    height: 25vh;
+    background: #f7f7f7;
+}
+
+.ratingImg {
+    padding-top: 35%;
+}
+
+.card-unit {
+    display: none;
+    margin-right: 10%;
+}
+
+.card-unit span {
+    font-size: 24px;
+    padding-left: 30%;
+}
+
+.card .card-content {
+    padding: 0 10px;
+}
+
+.grow { 
+    transition: all .2s ease-in-out;
+    margin-left: 120px; 
+}
+
+.grow:hover {
+    transform: scale(1.1);
+}
+.grow-filter { 
+    transition: all .2s ease-in-out;
+}
+
+.grow-filter:hover {
+    transform: scale(1.1);
+}
+
+.placeholder-image {
+    width: 200px;
+    height:225px;
+}
+
+.margin-right {
+    margin-right: 100px;
+}
+
+.filter-question {
+    color: white;
+    text-align: center;
+}
+
